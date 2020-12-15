@@ -9,4 +9,6 @@ public class Const {
     public static final String PRODUCT_IMAGE_ROUTE = "/productImage";
     public static final String SHIPPING_ADDRESS_ROUTE = "/shippingAddress";
     public static final String ORDER_ROUTE = "/order";
+    public static final String USER_INFO_ROUTE = "/userInfo";
+    public static final String USER_ROUTE = "/user";
 }
