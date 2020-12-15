@@ -3,6 +3,7 @@ package rs.ac.metropolitan.demo.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
@@ -10,24 +11,13 @@ import java.util.Objects;
 @Entity
 @Table(name = "order", schema = "ecommerce")
 public class OrderEntity extends BaseEntity implements Serializable {
-    private Integer idUserInfo;
     private Date date;
     private Double total;
-    private UserInfoEntity userInfoByIdUserInfo;
-    private List<OrderListOfProductsEntity> orderListOfProductsById;
+    @JoinColumn(name = "id_user_info", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private UserInfoEntity idUserInfo;
 
-    @Basic
-    @Column(name = "id_user_info", nullable = true)
-    public Integer getIdUserInfo() {
-        return idUserInfo;
-    }
 
-    public void setIdUserInfo(Integer idUserInfo) {
-        this.idUserInfo = idUserInfo;
-    }
-
-    @Basic
-    @Column(name = "date", nullable = true)
     public Date getDate() {
         return date;
     }
@@ -36,8 +26,6 @@ public class OrderEntity extends BaseEntity implements Serializable {
         this.date = date;
     }
 
-    @Basic
-    @Column(name = "total", nullable = true, precision = 0)
     public Double getTotal() {
         return total;
     }
@@ -45,22 +33,21 @@ public class OrderEntity extends BaseEntity implements Serializable {
     public void setTotal(Double total) {
         this.total = total;
     }
-    @ManyToOne
-    @JoinColumn(name = "id_user_info", referencedColumnName = "id")
-    public UserInfoEntity getUserInfoByIdUserInfo() {
-        return userInfoByIdUserInfo;
+
+    public UserInfoEntity getIdUserInfo() {
+        return idUserInfo;
     }
 
-    public void setUserInfoByIdUserInfo(UserInfoEntity userInfoByIdUserInfo) {
-        this.userInfoByIdUserInfo = userInfoByIdUserInfo;
+    public void setIdUserInfo(UserInfoEntity idUserInfo) {
+        this.idUserInfo = idUserInfo;
     }
 
-    @OneToMany(mappedBy = "orderByIdOrder")
-    public List<OrderListOfProductsEntity> getOrderListOfProductsById() {
-        return orderListOfProductsById;
+    public List<ProductEntity> getListOfProducts() {
+        return listOfProducts;
     }
 
-    public void setOrderListOfProductsById(List<OrderListOfProductsEntity> orderListOfProductsById) {
-        this.orderListOfProductsById = orderListOfProductsById;
-    }
+    @ManyToMany()
+    @JoinTable(name = "order_products", joinColumns = {@JoinColumn(name = "id_order")},
+            inverseJoinColumns = {@JoinColumn(name = "id_product")})
+    private final List<ProductEntity> listOfProducts = new ArrayList<>();
 }

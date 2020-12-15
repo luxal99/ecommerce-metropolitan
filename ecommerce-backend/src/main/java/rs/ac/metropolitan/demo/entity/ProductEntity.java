@@ -1,7 +1,10 @@
 package rs.ac.metropolitan.demo.entity;
 
+import org.hibernate.criterion.Order;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
@@ -9,40 +12,25 @@ import java.util.Objects;
 @Entity
 @Table(name = "product", schema = "ecommerce")
 public class ProductEntity extends BaseEntity implements Serializable {
-    private Integer idProductCategory;
-    private Integer idProductBrand;
     private String title;
     private String description;
     private Integer amount;
     private Double price;
-    private List<OrderListOfProductsEntity> orderListOfProductsById;
-    private ProductCategoryEntity productCategoryByIdProductCategory;
-    private ProductBrandEntity productBrandByIdProductBrand;
-    private List<ProductImagesEntity> productImagesById;
 
+    @JoinColumn(name = "id_product_category", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private ProductCategoryEntity idProductCategory;
 
-    @Basic
-    @Column(name = "id_product_category", nullable = true)
-    public Integer getIdProductCategory() {
-        return idProductCategory;
-    }
+    @JoinColumn(name = "id_product_brand", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private ProductBrandEntity idProductBrand;
 
-    public void setIdProductCategory(Integer idProductCategory) {
-        this.idProductCategory = idProductCategory;
-    }
+    @OneToMany(mappedBy = "idProduct")
+    private List<ProductImagesEntity> listOfImages;
 
-    @Basic
-    @Column(name = "id_product_brand", nullable = true)
-    public Integer getIdProductBrand() {
-        return idProductBrand;
-    }
+    @ManyToMany(mappedBy = "listOfProducts")
+    private final List<OrderEntity> listOfOrders = new ArrayList<>();
 
-    public void setIdProductBrand(Integer idProductBrand) {
-        this.idProductBrand = idProductBrand;
-    }
-
-    @Basic
-    @Column(name = "title", nullable = true, length = 64)
     public String getTitle() {
         return title;
     }
@@ -51,8 +39,6 @@ public class ProductEntity extends BaseEntity implements Serializable {
         this.title = title;
     }
 
-    @Basic
-    @Column(name = "description", nullable = true, length = -1)
     public String getDescription() {
         return description;
     }
@@ -61,8 +47,6 @@ public class ProductEntity extends BaseEntity implements Serializable {
         this.description = description;
     }
 
-    @Basic
-    @Column(name = "amount", nullable = true)
     public Integer getAmount() {
         return amount;
     }
@@ -71,8 +55,6 @@ public class ProductEntity extends BaseEntity implements Serializable {
         this.amount = amount;
     }
 
-    @Basic
-    @Column(name = "price", nullable = true, precision = 0)
     public Double getPrice() {
         return price;
     }
@@ -81,41 +63,31 @@ public class ProductEntity extends BaseEntity implements Serializable {
         this.price = price;
     }
 
-    @OneToMany(mappedBy = "productByIdProduct")
-    public List<OrderListOfProductsEntity> getOrderListOfProductsById() {
-        return orderListOfProductsById;
+    public ProductCategoryEntity getIdProductCategory() {
+        return idProductCategory;
     }
 
-    public void setOrderListOfProductsById(List<OrderListOfProductsEntity> orderListOfProductsById) {
-        this.orderListOfProductsById = orderListOfProductsById;
+    public void setIdProductCategory(ProductCategoryEntity idProductCategory) {
+        this.idProductCategory = idProductCategory;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "id_product_category", referencedColumnName = "id")
-    public ProductCategoryEntity getProductCategoryByIdProductCategory() {
-        return productCategoryByIdProductCategory;
+    public ProductBrandEntity getIdProductBrand() {
+        return idProductBrand;
     }
 
-    public void setProductCategoryByIdProductCategory(ProductCategoryEntity productCategoryByIdProductCategory) {
-        this.productCategoryByIdProductCategory = productCategoryByIdProductCategory;
+    public void setIdProductBrand(ProductBrandEntity idProductBrand) {
+        this.idProductBrand = idProductBrand;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "id_product_brand", referencedColumnName = "id")
-    public ProductBrandEntity getProductBrandByIdProductBrand() {
-        return productBrandByIdProductBrand;
+    public List<ProductImagesEntity> getListOfImages() {
+        return listOfImages;
     }
 
-    public void setProductBrandByIdProductBrand(ProductBrandEntity productBrandByIdProductBrand) {
-        this.productBrandByIdProductBrand = productBrandByIdProductBrand;
+    public void setListOfImages(List<ProductImagesEntity> listOfImages) {
+        this.listOfImages = listOfImages;
     }
 
-    @OneToMany(mappedBy = "productByIdProduct")
-    public List<ProductImagesEntity> getProductImagesById() {
-        return productImagesById;
-    }
-
-    public void setProductImagesById(List<ProductImagesEntity> productImagesById) {
-        this.productImagesById = productImagesById;
+    public List<OrderEntity> getListOfOrders() {
+        return listOfOrders;
     }
 }

@@ -2,6 +2,7 @@ package rs.ac.metropolitan.demo.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -10,13 +11,17 @@ public class UserInfoEntity extends BaseEntity implements Serializable {
     private String fullName;
     private String email;
     private String telephone;
-    private Integer idShippingAddress;
-    private List<OrderEntity> ordersById;
-    private List<UserEntity> usersById;
-    private ShippingAddressEntity shippingAddressByIdShippingAddress;
 
-    @Basic
-    @Column(name = "full_name", nullable = true, length = 128)
+    @OneToMany(mappedBy = "idUserInfo")
+    private List<OrderEntity> ordersById = new ArrayList<>();
+
+    @OneToOne(mappedBy = "idUserInfo")
+    private UserEntity usersById;
+
+    @JoinColumn(name = "id_shipping_address", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private ShippingAddressEntity idShippingAddress;
+
     public String getFullName() {
         return fullName;
     }
@@ -25,8 +30,6 @@ public class UserInfoEntity extends BaseEntity implements Serializable {
         this.fullName = fullName;
     }
 
-    @Basic
-    @Column(name = "email", nullable = true, length = 128)
     public String getEmail() {
         return email;
     }
@@ -35,8 +38,6 @@ public class UserInfoEntity extends BaseEntity implements Serializable {
         this.email = email;
     }
 
-    @Basic
-    @Column(name = "telephone", nullable = true, length = 128)
     public String getTelephone() {
         return telephone;
     }
@@ -45,17 +46,6 @@ public class UserInfoEntity extends BaseEntity implements Serializable {
         this.telephone = telephone;
     }
 
-    @Basic
-    @Column(name = "id_shipping_address", nullable = true)
-    public Integer getIdShippingAddress() {
-        return idShippingAddress;
-    }
-
-    public void setIdShippingAddress(Integer idShippingAddress) {
-        this.idShippingAddress = idShippingAddress;
-    }
-
-    @OneToMany(mappedBy = "userInfoByIdUserInfo")
     public List<OrderEntity> getOrdersById() {
         return ordersById;
     }
@@ -64,22 +54,19 @@ public class UserInfoEntity extends BaseEntity implements Serializable {
         this.ordersById = ordersById;
     }
 
-    @OneToMany(mappedBy = "userInfoByIdUserInfo")
-    public List<UserEntity> getUsersById() {
+    public UserEntity getUsersById() {
         return usersById;
     }
 
-    public void setUsersById(List<UserEntity> usersById) {
+    public void setUsersById(UserEntity usersById) {
         this.usersById = usersById;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "id_shipping_address", referencedColumnName = "id")
-    public ShippingAddressEntity getShippingAddressByIdShippingAddress() {
-        return shippingAddressByIdShippingAddress;
+    public ShippingAddressEntity getIdShippingAddress() {
+        return idShippingAddress;
     }
 
-    public void setShippingAddressByIdShippingAddress(ShippingAddressEntity shippingAddressByIdShippingAddress) {
-        this.shippingAddressByIdShippingAddress = shippingAddressByIdShippingAddress;
+    public void setIdShippingAddress(ShippingAddressEntity idShippingAddress) {
+        this.idShippingAddress = idShippingAddress;
     }
 }

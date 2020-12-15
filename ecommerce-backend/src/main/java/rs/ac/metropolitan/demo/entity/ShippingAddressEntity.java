@@ -2,21 +2,19 @@ package rs.ac.metropolitan.demo.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 @Entity
 @Table(name = "shipping_address", schema = "ecommerce")
 public class ShippingAddressEntity extends BaseEntity implements Serializable {
-    private int id;
     private String city;
     private String address;
     private Integer postcode;
-    private List<UserInfoEntity> userInfosById;
+    @OneToMany(mappedBy = "idShippingAddress")
+    private final List<UserInfoEntity> listOfUserInfo = new ArrayList<>();
 
-
-    @Basic
-    @Column(name = "city", nullable = true, length = 64)
     public String getCity() {
         return city;
     }
@@ -25,8 +23,6 @@ public class ShippingAddressEntity extends BaseEntity implements Serializable {
         this.city = city;
     }
 
-    @Basic
-    @Column(name = "address", nullable = true, length = 64)
     public String getAddress() {
         return address;
     }
@@ -35,8 +31,6 @@ public class ShippingAddressEntity extends BaseEntity implements Serializable {
         this.address = address;
     }
 
-    @Basic
-    @Column(name = "postcode", nullable = true)
     public Integer getPostcode() {
         return postcode;
     }
@@ -45,13 +39,7 @@ public class ShippingAddressEntity extends BaseEntity implements Serializable {
         this.postcode = postcode;
     }
 
-
-    @OneToMany(mappedBy = "shippingAddressByIdShippingAddress")
-    public List<UserInfoEntity> getUserInfosById() {
-        return userInfosById;
-    }
-
-    public void setUserInfosById(List<UserInfoEntity> userInfosById) {
-        this.userInfosById = userInfosById;
+    public List<UserInfoEntity> getListOfUserInfo() {
+        return listOfUserInfo;
     }
 }

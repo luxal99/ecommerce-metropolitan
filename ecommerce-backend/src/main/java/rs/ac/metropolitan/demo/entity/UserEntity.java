@@ -6,16 +6,18 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "user", schema = "ecommerce")
-public class UserEntity extends  BaseEntity implements Serializable {
+public class UserEntity extends BaseEntity implements Serializable {
     private String username;
     private String password;
-    private Integer idRole;
-    private Integer idUserInfo;
-    private RoleEntity roleByIdRole;
-    private UserInfoEntity userInfoByIdUserInfo;
 
-    @Basic
-    @Column(name = "username", nullable = false, length = 64)
+    @JoinColumn(name = "id_role", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private RoleEntity idRole;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_user_info", referencedColumnName = "id")
+    private UserInfoEntity idUserInfo;
+
     public String getUsername() {
         return username;
     }
@@ -24,8 +26,6 @@ public class UserEntity extends  BaseEntity implements Serializable {
         this.username = username;
     }
 
-    @Basic
-    @Column(name = "password", nullable = false, length = 64)
     public String getPassword() {
         return password;
     }
@@ -34,44 +34,19 @@ public class UserEntity extends  BaseEntity implements Serializable {
         this.password = password;
     }
 
-    @Basic
-    @Column(name = "id_role", nullable = true)
-    public Integer getIdRole() {
+    public RoleEntity getIdRole() {
         return idRole;
     }
 
-    public void setIdRole(Integer idRole) {
+    public void setIdRole(RoleEntity idRole) {
         this.idRole = idRole;
     }
 
-    @Basic
-    @Column(name = "id_user_info", nullable = true)
-    public Integer getIdUserInfo() {
+    public UserInfoEntity getIdUserInfo() {
         return idUserInfo;
     }
 
-    public void setIdUserInfo(Integer idUserInfo) {
+    public void setIdUserInfo(UserInfoEntity idUserInfo) {
         this.idUserInfo = idUserInfo;
-    }
-
-
-    @ManyToOne
-    @JoinColumn(name = "id_role", referencedColumnName = "id")
-    public RoleEntity getRoleByIdRole() {
-        return roleByIdRole;
-    }
-
-    public void setRoleByIdRole(RoleEntity roleByIdRole) {
-        this.roleByIdRole = roleByIdRole;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "id_user_info", referencedColumnName = "id")
-    public UserInfoEntity getUserInfoByIdUserInfo() {
-        return userInfoByIdUserInfo;
-    }
-
-    public void setUserInfoByIdUserInfo(UserInfoEntity userInfoByIdUserInfo) {
-        this.userInfoByIdUserInfo = userInfoByIdUserInfo;
     }
 }

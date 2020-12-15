@@ -1,19 +1,22 @@
 package rs.ac.metropolitan.demo.entity;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 @Entity
+@XmlRootElement
 @Table(name = "role", schema = "ecommerce")
 public class RoleEntity extends BaseEntity implements Serializable {
+
     private String title;
-    private List<UserEntity> usersById;
 
+    @OneToMany(mappedBy = "idRole")
+    private List<UserEntity> listOfUsers = new ArrayList<>();
 
-    @Basic
-    @Column(name = "title", nullable = true, length = 64)
     public String getTitle() {
         return title;
     }
@@ -22,13 +25,11 @@ public class RoleEntity extends BaseEntity implements Serializable {
         this.title = title;
     }
 
-
-    @OneToMany(mappedBy = "roleByIdRole")
-    public List<UserEntity> getUsersById() {
-        return usersById;
+    public List<UserEntity> getListOfUsers() {
+        return listOfUsers;
     }
 
-    public void setUsersById(List<UserEntity> usersById) {
-        this.usersById = usersById;
+    public void setListOfUsers(List<UserEntity> listOfUsers) {
+        this.listOfUsers = listOfUsers;
     }
 }
