@@ -24,7 +24,7 @@ import static rs.ac.metropolitan.demo.constants.Const.*;
 
 public class JWTAuthFilter extends UsernamePasswordAuthenticationFilter {
 
-    private AuthenticationManager authenticationManager;
+    private final AuthenticationManager authenticationManager;
 
     public JWTAuthFilter(AuthenticationManager authenticationManager) {
         this.authenticationManager = authenticationManager;
@@ -33,13 +33,13 @@ public class JWTAuthFilter extends UsernamePasswordAuthenticationFilter {
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
         try {
-            UserEntity creds = new ObjectMapper()
+            UserEntity credential = new ObjectMapper()
                     .readValue(request.getInputStream(), UserEntity.class);
 
             return authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
-                            creds.getUsername(),
-                            creds.getPassword(),
+                            credential.getUsername(),
+                            credential.getPassword(),
                             new ArrayList<>())
             );
         } catch (IOException e) {
