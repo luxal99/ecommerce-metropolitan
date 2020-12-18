@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306</property>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <mapping class="rs.ac.metropolitan.demo.entity.OrderEntity"/>
+        <mapping class="rs.ac.metropolitan.demo.entity.ProductEntity"/>
+        <mapping class="rs.ac.metropolitan.demo.entity.ProductBrandEntity"/>
+        <mapping class="rs.ac.metropolitan.demo.entity.ProductCategoryEntity"/>
+        <mapping class="rs.ac.metropolitan.demo.entity.ProductImagesEntity"/>
+        <mapping class="rs.ac.metropolitan.demo.entity.RoleEntity"/>
+        <mapping class="rs.ac.metropolitan.demo.entity.ShippingAddressEntity"/>
+        <mapping class="rs.ac.metropolitan.demo.entity.UserEntity"/>
+        <mapping class="rs.ac.metropolitan.demo.entity.UserInfoEntity"/>
+    </session-factory>
+</hibernate-configuration>
