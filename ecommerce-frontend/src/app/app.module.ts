@@ -7,12 +7,16 @@ import {HomeComponent} from './components/home/home.component';
 import {AdminComponent} from './components/admin/admin.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule} from './material.module';
+import {ProductComponent} from './components/admin/product/product.component';
+import {GlobalComponent} from './components/admin/global/global.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AdminComponent
+    AdminComponent,
+    ProductComponent,
+    GlobalComponent
   ],
   imports: [
     BrowserModule,
@@ -20,6 +24,7 @@ import {MaterialModule} from './material.module';
     MaterialModule,
     BrowserAnimationsModule
   ],
+  entryComponents: [ProductComponent, GlobalComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

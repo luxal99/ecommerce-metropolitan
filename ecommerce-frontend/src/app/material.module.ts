@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {DragDropModule} from '@angular/cdk/drag-drop'
+import {DragDropModule} from '@angular/cdk/drag-drop';
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -35,8 +35,7 @@ import {
   MatToolbarModule,
   MatTooltipModule,
   MatStepperModule,
-  MatTreeModule,
-  MatPaginator
+  MatTreeModule
 } from '@angular/material';
 import {PortalModule} from '@angular/cdk/portal';
 import {ScrollingModule} from '@angular/cdk/scrolling';

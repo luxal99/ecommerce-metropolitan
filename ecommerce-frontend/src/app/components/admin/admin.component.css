@@ -1,3 +1,31 @@
+.admin {
+  background-color: #212132;
+  min-height: 100vh;
+  padding: 1em;
+}
+.admin .col-sm-10 {
+  margin-top: 5em;
+  background-color: #1a1a26;
+  padding: 6em 2em 2em 10em;
+  border-top-left-radius: 15em;
+  min-height: 91vh;
+}
 
+.menu {
+  padding: 15em 2em;
+}
+
+h4 {
+  color: #fff;
+  cursor: pointer;
+}
+
+.active {
+  transition: 0.5s ease;
+  color: #56CCF2;
+  background-color: #1a1a26;
+  padding: 0.5em;
+  border-radius: 20px;
+}
 
 /*# sourceMappingURL=admin.component.css.map */
