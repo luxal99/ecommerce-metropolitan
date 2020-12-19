@@ -34,7 +34,8 @@
                 </div>
               </form>
 
-              <button (click)="stepper.next()" mat-button class="next-btn">Next</button>
+              <button (click)="stepper.next()" [disabled]="!userInfoForm.valid" mat-button class="next-btn">Next
+              </button>
             </div>
           </mat-step>
           <mat-step [stepControl]="userForm" label="User credentials">
@@ -70,7 +71,10 @@
 
               <div style="display: inline-flex;width: 100%">
                 <button (click)="stepper.previous()" mat-button class="back-btn">Back</button>
-                <button mat-button class="next-btn" (click)="register()" style="margin-left: 1em">Save</button>
+                <button mat-button class="next-btn" (click)="register()"
+                        [disabled]="!userForm.valid || !(userForm.get('password').value === userForm.get('passwordConfirm').value)"
+                        style="margin-left: 1em">Save
+                </button>
               </div>
             </div>
           </mat-step>
