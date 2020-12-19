@@ -3,4 +3,13 @@
   margin-right: 0 !important;
 }
 
+h1 {
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+}
+
+h3, h4, h5, h6 {
+  font-family: "Poppins", sans-serif;
+}
+
 /*# sourceMappingURL=app.component.css.map */

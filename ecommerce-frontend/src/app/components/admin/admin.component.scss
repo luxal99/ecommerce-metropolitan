@@ -1,3 +1,4 @@
+@import "../../app.component";
 .admin {
   background-color: #212132;
   min-height: 100vh;
@@ -24,7 +25,7 @@ h4 {
 
 .active {
   transition: .5s ease;
-  color: #56CCF2;
+  color: $blue-font-color;
   background-color: #1a1a26;
   padding: .5em;
   border-radius: 20px;
