@@ -11,9 +11,10 @@ import {ProductComponent} from './components/admin/product/product.component';
 import {GlobalComponent} from './components/admin/global/global.component';
 import {HeadingComponent} from './directives/heading/heading.component';
 import {AddProductDialogComponent} from './components/admin/product/add-product-dialog/add-product-dialog.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegistrationComponent } from './components/registration/registration.component';
+import {LoginComponent} from './components/login/login.component';
+import {RegistrationComponent} from './components/registration/registration.component';
 
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +37,6 @@ import { RegistrationComponent } from './components/registration/registration.co
   providers: [],
   bootstrap: [AppComponent]
 })
+// @ts-ignore
 export class AppModule {
 }
-

@@ -12,3 +12,5 @@ export const TOKEN_PREFIX = 'Bearer ';
 export const ADMIN_ROUTE = 'admin';
 
 export const BASIC_ROUTE = '';
+export const REGISTRATION_ROUTE = 'registration';
+export const LOGIN_ROUTE = 'login';
