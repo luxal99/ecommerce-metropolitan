@@ -1,4 +1,8 @@
 import {Component, OnInit} from '@angular/core';
+import {DialogUtil} from '../../../util/dialog-util';
+import {AddProductDialogComponent} from './add-product-dialog/add-product-dialog.component';
+import {DialogOptions} from '../../../util/dialog-options';
+import {MatDialog} from '@angular/material';
 
 @Component({
   selector: 'app-product',
@@ -7,14 +11,15 @@ import {Component, OnInit} from '@angular/core';
 })
 export class ProductComponent implements OnInit {
 
-  constructor() {
+  constructor(private dialog: MatDialog) {
   }
 
   ngOnInit() {
   }
 
-  test() {
-    console.log('WORK');
+  openAddProductDialog() {
+    DialogUtil.openDialog(AddProductDialogComponent, DialogOptions.getOptions({}), this.dialog);
   }
+
 
 }
