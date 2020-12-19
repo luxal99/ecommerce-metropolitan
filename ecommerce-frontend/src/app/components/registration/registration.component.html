@@ -1,1 +1,82 @@
-<p>registration works!</p>
+<div class="registration">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-8">
+        <mat-horizontal-stepper #stepper>
+          <mat-step [stepControl]="userInfoForm" label="Basic user information">
+            <div class="step">
+              <h2>User information</h2>
+              <form [formGroup]="userInfoForm">
+                <div>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Full name</mat-label>
+                    <input formControlName="fullName" matInput>
+                    <mat-icon matSuffix>text_rotation_angledown</mat-icon>
+
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input formControlName="email" matInput>
+                    <mat-icon matSuffix>email</mat-icon>
+
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Telephone</mat-label>
+                    <input formControlName="telephone" matInput>
+                    <mat-icon matSuffix>phone</mat-icon>
+
+                  </mat-form-field>
+                </div>
+              </form>
+
+              <button (click)="stepper.next()" mat-button class="next-btn">Next</button>
+            </div>
+          </mat-step>
+          <mat-step [stepControl]="userForm" label="User credentials">
+
+            <div class="step">
+              <h2>User credentials</h2>
+              <form [formGroup]="userForm">
+                <div>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Username</mat-label>
+                    <input formControlName="username" matInput>
+                    <mat-icon matSuffix>person_pin
+                    </mat-icon>
+
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Password</mat-label>
+                    <input formControlName="password" type="password" matInput>
+                    <mat-icon matSuffix>lock</mat-icon>
+
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Confirm password</mat-label>
+                    <input formControlName="passwordConfirm" type="password" matInput>
+                    <mat-icon matSuffix>lock</mat-icon>
+                  </mat-form-field>
+                </div>
+              </form>
+
+              <div style="display: inline-flex;width: 100%">
+                <button (click)="stepper.previous()" mat-button class="back-btn">Back</button>
+                <button mat-button class="next-btn" (click)="register()" style="margin-left: 1em">Save</button>
+              </div>
+            </div>
+          </mat-step>
+        </mat-horizontal-stepper>
+
+      </div>
+    </div>
+  </div>
+</div>

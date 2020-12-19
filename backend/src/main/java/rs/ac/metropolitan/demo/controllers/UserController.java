@@ -20,12 +20,12 @@ public class UserController {
 
     @PostMapping("")
     private String save(@RequestBody() UserEntity user) {
-        try {
+//        try {
             user.setPassword(passwordService.passwordEncoder().encode(user.getPassword()));
             userRepository.save(user);
             return String.valueOf(HttpStatus.OK);
-        } catch (Exception exception) {
-            return String.valueOf(HttpStatus.BAD_REQUEST);
-        }
+//        } catch (Exception exception) {
+//            return String.valueOf(HttpStatus.BAD_REQUEST);
+//        }
     }
 }

@@ -1,5 +1,7 @@
 package rs.ac.metropolitan.demo.entity;
 
+import net.minidev.json.annotate.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -11,10 +13,11 @@ public class UserEntity extends BaseEntity implements Serializable {
     private String password;
 
     @JoinColumn(name = "id_role", referencedColumnName = "id")
+    @JsonIgnore()
     @ManyToOne(optional = false)
     private RoleEntity idRole;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
     @JoinColumn(name = "id_user_info", referencedColumnName = "id")
     private UserInfoEntity idUserInfo;
 

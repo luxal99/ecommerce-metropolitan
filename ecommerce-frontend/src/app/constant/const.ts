@@ -14,3 +14,16 @@ export const ADMIN_ROUTE = 'admin';
 export const BASIC_ROUTE = '';
 export const REGISTRATION_ROUTE = 'registration';
 export const LOGIN_ROUTE = 'login';
+
+
+export const FULL_NAME_FORM_CONTROL = 'fullName';
+export const EMAIL_FORM_CONTROL = 'email';
+export const TELEPHONE_FORM_CONTROL = 'telephone';
+export const USERNAME_FORM_CONTROL = 'username';
+export const PASSWORD_FORM_CONTROL = 'password';
+export const PASSWORD_CONFIRM_FORM_CONTROL = 'passwordConfirm';
+
+export const CLIENT_ROLE_NAME = 'CLIENT_ROLE';
+
+export const SUCCESS_MESSAGE = 'Success';
+export const ERR_MESSAGE = 'Error';

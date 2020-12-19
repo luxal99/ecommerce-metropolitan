@@ -1,5 +1,7 @@
 package rs.ac.metropolitan.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
@@ -15,6 +17,7 @@ public class RoleEntity extends BaseEntity implements Serializable {
     private String title;
 
     @OneToMany(mappedBy = "idRole")
+    @JsonIgnoreProperties("listOfUsers")
     private List<UserEntity> listOfUsers = new ArrayList<>();
 
     public String getTitle() {

@@ -13,6 +13,8 @@ import {HeadingComponent} from './directives/heading/heading.component';
 import {AddProductDialogComponent} from './components/admin/product/add-product-dialog/add-product-dialog.component';
 import {LoginComponent} from './components/login/login.component';
 import {RegistrationComponent} from './components/registration/registration.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 // @ts-ignore
 @NgModule({
@@ -31,6 +33,8 @@ import {RegistrationComponent} from './components/registration/registration.comp
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     BrowserAnimationsModule
   ],
   entryComponents: [ProductComponent, GlobalComponent, AddProductDialogComponent],

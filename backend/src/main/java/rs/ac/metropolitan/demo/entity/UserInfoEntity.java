@@ -16,10 +16,10 @@ public class UserInfoEntity extends BaseEntity implements Serializable {
     private List<OrderEntity> ordersById = new ArrayList<>();
 
     @OneToOne(mappedBy = "idUserInfo")
-    private UserEntity usersById;
+    private UserEntity idUser;
 
-    @JoinColumn(name = "id_shipping_address", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @JoinColumn(name = "id_shipping_address", referencedColumnName = "id",nullable = false)
+    @ManyToOne(optional = false,fetch = FetchType.LAZY,cascade = CascadeType.PERSIST)
     private ShippingAddressEntity idShippingAddress;
 
     public String getFullName() {
@@ -54,12 +54,12 @@ public class UserInfoEntity extends BaseEntity implements Serializable {
         this.ordersById = ordersById;
     }
 
-    public UserEntity getUsersById() {
-        return usersById;
+    public UserEntity getIdUser() {
+        return idUser;
     }
 
-    public void setUsersById(UserEntity usersById) {
-        this.usersById = usersById;
+    public void setIdUser(UserEntity idUser) {
+        this.idUser = idUser;
     }
 
     public ShippingAddressEntity getIdShippingAddress() {

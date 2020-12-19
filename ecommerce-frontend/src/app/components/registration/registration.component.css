@@ -1,3 +1,88 @@
+.create-btn {
+  width: 40%;
+  background-color: #212132;
+  color: #56CCF2;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  padding: 0.5em 0;
+  border-radius: 20px;
+}
 
+.row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+h1, h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+}
+
+h3, h4, h5, h6 {
+  font-family: "Poppins", sans-serif;
+}
+
+::ng-deep.mat-form-field-appearance-fill .mat-form-field-underline::before {
+  background: none;
+}
+
+::ng-deep.mat-form-field-underline {
+  transform: none;
+}
+
+.registration {
+  min-height: 100vh;
+  background-color: #1a1a26;
+}
+
+.container {
+  padding-top: 10%;
+}
+
+.row {
+  border-radius: 20px;
+}
+
+.back-btn {
+  width: 40%;
+  background-color: #eee;
+}
+
+.next-btn {
+  width: 60%;
+  background-color: #1a1a26;
+  color: #fff;
+}
+
+.col-sm-8 {
+  padding-left: 0 !important;
+  border-radius: 20px;
+}
+
+.col-sm-4 {
+  background-image: url("../../../assets/img/payment-4334491_1920.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+::ng-deep.mat-step-header .mat-step-icon-selected {
+  background-color: #1a1a26;
+}
+
+.step {
+  padding: 3em;
+}
+
+mat-horizontal-stepper {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-top: 1em;
+}
 
 /*# sourceMappingURL=registration.component.css.map */

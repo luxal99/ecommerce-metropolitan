@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import rs.ac.metropolitan.demo.service.UserServiceImpl;
 
-import static rs.ac.metropolitan.demo.constants.Const.SIGN_UP_URL;
+import static rs.ac.metropolitan.demo.constants.Const.*;
 
 @EnableWebSecurity
 public class WebSecurity extends WebSecurityConfigurerAdapter {
@@ -29,6 +29,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST, SIGN_UP_URL).permitAll()
+                .antMatchers(HttpMethod.GET, ROLE_ROUTE + "/**").permitAll().antMatchers(HttpMethod.POST, USER_INFO_ROUTE).permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilter(new JWTAuthFilter(authenticationManager()))
