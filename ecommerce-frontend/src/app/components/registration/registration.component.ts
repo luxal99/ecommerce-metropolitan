@@ -43,10 +43,6 @@ export class RegistrationComponent implements OnInit {
 
   register() {
 
-    console.log(new UserInfo(
-      this.userInfoForm.get(FULL_NAME_FORM_CONTROL).value,
-      this.userInfoForm.get(EMAIL_FORM_CONTROL).value,
-      this.userInfoForm.get(TELEPHONE_FORM_CONTROL).value, new ShippingAddress()));
     this.userInfoService.save(new UserInfo(
       this.userInfoForm.get(FULL_NAME_FORM_CONTROL).value,
       this.userInfoForm.get(EMAIL_FORM_CONTROL).value,
@@ -58,10 +54,14 @@ export class RegistrationComponent implements OnInit {
             this.userForm.get(PASSWORD_FORM_CONTROL).value,
             role, userInfo)).subscribe((user) => {
             this.openSnackBar(SUCCESS_MESSAGE);
-          }, error => {
-            this.openSnackBar(error);
+          }, () => {
+            this.openSnackBar(ERR_MESSAGE);
           });
+        }, () => {
+          this.openSnackBar(ERR_MESSAGE);
         });
+      }, () => {
+        this.openSnackBar(ERR_MESSAGE);
       });
 
   }

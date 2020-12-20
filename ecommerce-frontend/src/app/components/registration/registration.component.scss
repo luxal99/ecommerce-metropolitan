@@ -49,6 +49,7 @@ mat-form-field {
 ::ng-deep.mat-form-field-underline {
   /*change color of underline*/
   background-color: $light-violet !important;
+  transform: none !important;
 }
 ::ng-deep.mat-form-field-ripple {
   /*change color of underline when focused*/

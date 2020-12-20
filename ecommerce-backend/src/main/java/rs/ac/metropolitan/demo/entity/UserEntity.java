@@ -1,5 +1,6 @@
 package rs.ac.metropolitan.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
@@ -13,8 +14,8 @@ public class UserEntity extends BaseEntity implements Serializable {
     private String password;
 
     @JoinColumn(name = "id_role", referencedColumnName = "id")
-    @JsonIgnore()
     @ManyToOne(optional = false)
+    @JsonIgnore()
     private RoleEntity idRole;
 
     @OneToOne()
