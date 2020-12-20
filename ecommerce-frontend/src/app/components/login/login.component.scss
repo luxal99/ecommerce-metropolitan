@@ -1,0 +1,17 @@
+@import "../registration/registration.component";
+@import "../../app.component";
+
+.col-sm-8 {
+  background-color: #fff;
+  border-top-left-radius: 0!important;
+  border-bottom-left-radius: 0!important;
+}
+
+button {
+  margin-left: 0 !important;
+  margin-top: 2em;
+  padding: .5em 0;
+}
+.step {
+  padding: 5em;
+}

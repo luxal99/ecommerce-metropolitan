@@ -12,7 +12,8 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import rs.ac.metropolitan.demo.service.UserServiceImpl;
+import rs.ac.metropolitan.demo.repository.UserRepository;
+import rs.ac.metropolitan.demo.service.UserDetailsServiceImpl;
 
 import static rs.ac.metropolitan.demo.constants.Const.*;
 
@@ -20,21 +21,26 @@ import static rs.ac.metropolitan.demo.constants.Const.*;
 public class WebSecurity extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private UserServiceImpl userDetailsService;
+    private UserDetailsServiceImpl userDetailsService;
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST, SIGN_UP_URL).permitAll()
-                .antMatchers(HttpMethod.GET, ROLE_ROUTE + "/**").permitAll().antMatchers(HttpMethod.POST, USER_INFO_ROUTE).permitAll()
+                .antMatchers(HttpMethod.GET, ROLE_ROUTE + "/**").permitAll()
+                .antMatchers(HttpMethod.POST, USER_INFO_ROUTE).permitAll()
+                .antMatchers(HttpMethod.GET, USER_INFO_ROUTE).hasRole(ROLE_ADMIN)
+                .antMatchers(HttpMethod.POST, PRODUCT_CATEGORY_ROUTE).hasRole(ROLE_ADMIN)
                 .anyRequest().authenticated()
                 .and()
                 .addFilter(new JWTAuthFilter(authenticationManager()))
-                .addFilter(new JWTAuthorizationFilter(authenticationManager()))
-                // this disables session creation on Spring Security
+                .addFilter(new JWTAuthorizationFilter(authenticationManager(), userRepository))
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 

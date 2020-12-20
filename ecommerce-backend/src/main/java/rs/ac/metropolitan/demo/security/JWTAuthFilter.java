@@ -3,6 +3,7 @@ package rs.ac.metropolitan.demo.security;
 
 import com.auth0.jwt.JWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -10,6 +11,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import rs.ac.metropolitan.demo.entity.UserEntity;
+import rs.ac.metropolitan.demo.service.UserDetailsImpl;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -18,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import static com.auth0.jwt.algorithms.Algorithm.HMAC512;
 import static rs.ac.metropolitan.demo.constants.Const.*;
@@ -26,6 +29,7 @@ public class JWTAuthFilter extends UsernamePasswordAuthenticationFilter {
 
     private final AuthenticationManager authenticationManager;
 
+    @Autowired
     public JWTAuthFilter(AuthenticationManager authenticationManager) {
         this.authenticationManager = authenticationManager;
     }
@@ -36,12 +40,15 @@ public class JWTAuthFilter extends UsernamePasswordAuthenticationFilter {
             UserEntity credential = new ObjectMapper()
                     .readValue(request.getInputStream(), UserEntity.class);
 
+            UserDetailsImpl userDetails = new UserDetailsImpl(credential);
+
             return authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
                             credential.getUsername(),
                             credential.getPassword(),
                             new ArrayList<>())
             );
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

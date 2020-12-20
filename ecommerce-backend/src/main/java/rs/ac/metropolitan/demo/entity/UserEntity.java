@@ -53,4 +53,9 @@ public class UserEntity extends BaseEntity implements Serializable {
     public void setIdUserInfo(UserInfoEntity idUserInfo) {
         this.idUserInfo = idUserInfo;
     }
+
+    @Override
+    public String toString() {
+        return "Username:" + getUsername() + "Password" + getPassword();
+    }
 }

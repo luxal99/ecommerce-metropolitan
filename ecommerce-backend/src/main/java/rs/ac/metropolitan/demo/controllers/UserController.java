@@ -2,6 +2,7 @@ package rs.ac.metropolitan.demo.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import rs.ac.metropolitan.demo.constants.Const;
 import rs.ac.metropolitan.demo.entity.UserEntity;
@@ -21,11 +22,12 @@ public class UserController {
     @PostMapping("")
     private String save(@RequestBody() UserEntity user) {
 //        try {
-            user.setPassword(passwordService.passwordEncoder().encode(user.getPassword()));
-            userRepository.save(user);
-            return String.valueOf(HttpStatus.OK);
+        user.setPassword(passwordService.passwordEncoder().encode(user.getPassword()));
+        userRepository.save(user);
+        return String.valueOf(HttpStatus.OK);
 //        } catch (Exception exception) {
 //            return String.valueOf(HttpStatus.BAD_REQUEST);
 //        }
     }
+
 }

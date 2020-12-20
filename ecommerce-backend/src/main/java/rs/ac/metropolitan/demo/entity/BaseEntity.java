@@ -1,6 +1,7 @@
 package rs.ac.metropolitan.demo.entity;
 
 import javax.persistence.*;
+
 @MappedSuperclass
 public class BaseEntity {
     @Id

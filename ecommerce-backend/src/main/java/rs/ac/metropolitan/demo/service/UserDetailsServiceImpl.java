@@ -12,7 +12,7 @@ import rs.ac.metropolitan.demo.repository.UserRepository;
 import static java.util.Collections.emptyList;
 
 @Service
-public class UserServiceImpl implements UserDetailsService {
+public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
