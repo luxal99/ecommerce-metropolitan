@@ -23,7 +23,7 @@ export const USERNAME_FORM_CONTROL = 'username';
 export const PASSWORD_FORM_CONTROL = 'password';
 export const PASSWORD_CONFIRM_FORM_CONTROL = 'passwordConfirm';
 
-export const CLIENT_ROLE_NAME = 'CLIENT_ROLE';
+export const CLIENT_ROLE_NAME = 'ROLE_CLIENT';
 
 export const SUCCESS_MESSAGE = 'Success';
 export const ERR_MESSAGE = 'Error';

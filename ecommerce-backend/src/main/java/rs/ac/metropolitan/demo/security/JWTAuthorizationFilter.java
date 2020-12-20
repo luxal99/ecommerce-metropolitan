@@ -59,9 +59,8 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
                     .getSubject();
 
             if (username != null) {
-                UserDetailsImpl userDetails = new UserDetailsImpl(userRepository.findUserEntityByUsername(username));
-                System.out.println(userDetails.getAuthorities());
-                return new UsernamePasswordAuthenticationToken(username, null, userDetails.getAuthorities());
+                return new UsernamePasswordAuthenticationToken(username, null,
+                        new UserDetailsImpl(userRepository.findUserEntityByUsername(username)).getAuthorities());
             }
             return null;
         }
