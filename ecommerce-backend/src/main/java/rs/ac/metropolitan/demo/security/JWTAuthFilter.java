@@ -3,14 +3,18 @@ package rs.ac.metropolitan.demo.security;
 
 import com.auth0.jwt.JWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import net.minidev.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import rs.ac.metropolitan.demo.dto.UserDTO;
 import rs.ac.metropolitan.demo.entity.UserEntity;
+import rs.ac.metropolitan.demo.repository.UserRepository;
 import rs.ac.metropolitan.demo.service.UserDetailsImpl;
 
 import javax.servlet.FilterChain;
@@ -27,11 +31,16 @@ import static rs.ac.metropolitan.demo.constants.Const.*;
 
 public class JWTAuthFilter extends UsernamePasswordAuthenticationFilter {
 
+    @Autowired
     private final AuthenticationManager authenticationManager;
 
-    @Autowired
-    public JWTAuthFilter(AuthenticationManager authenticationManager) {
+
+    private UserRepository userRepository;
+
+
+    public JWTAuthFilter(AuthenticationManager authenticationManager, UserRepository userRepository) {
         this.authenticationManager = authenticationManager;
+        this.userRepository = userRepository;
     }
 
     @Override
@@ -56,10 +65,19 @@ public class JWTAuthFilter extends UsernamePasswordAuthenticationFilter {
 
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication auth) throws IOException, ServletException {
+
+        UserEntity userEntity = userRepository.findUserEntityByUsername(((User) auth.getPrincipal()).getUsername());
+
         String token = JWT.create()
                 .withSubject(((User) auth.getPrincipal()).getUsername())
                 .withExpiresAt(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                 .sign(HMAC512(SECRET.getBytes()));
-        response.addHeader(HEADER_STRING, TOKEN_PREFIX + token);
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.appendField("username", userEntity.getUsername());
+        jsonObject.appendField("roleName", userEntity.getIdRole().getTitle());
+        jsonObject.appendField("accessToken", TOKEN_PREFIX + token);
+        response.getWriter().print(jsonObject.toJSONString());
     }
 }

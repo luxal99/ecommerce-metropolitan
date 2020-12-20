@@ -39,7 +39,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, PRODUCT_CATEGORY_ROUTE).hasRole(ROLE_ADMIN)
                 .anyRequest().authenticated()
                 .and()
-                .addFilter(new JWTAuthFilter(authenticationManager()))
+                .addFilter(new JWTAuthFilter(authenticationManager(),userRepository))
                 .addFilter(new JWTAuthorizationFilter(authenticationManager(), userRepository))
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
