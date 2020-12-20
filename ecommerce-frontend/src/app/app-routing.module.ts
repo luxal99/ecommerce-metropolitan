@@ -5,13 +5,14 @@ import {AdminComponent} from './components/admin/admin.component';
 import {HomeComponent} from './components/home/home.component';
 import {RegistrationComponent} from './components/registration/registration.component';
 import {LoginComponent} from './components/login/login.component';
+import {AuthService} from './service/auth.service';
 
 
 const routes: Routes = [
   {path: BASIC_ROUTE, component: HomeComponent},
   {path: REGISTRATION_ROUTE, component: RegistrationComponent},
   {path: LOGIN_ROUTE, component: LoginComponent},
-  {path: ADMIN_ROUTE, component: AdminComponent}
+  {path: ADMIN_ROUTE, component: AdminComponent, canActivate: [AuthService]}
 ];
 
 @NgModule({

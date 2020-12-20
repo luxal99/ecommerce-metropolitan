@@ -2,6 +2,7 @@
   "context": [
     "/userInfo",
     "/user",
+    "/login",
     "/role"
   ],
   "target": "http://localhost:8080",
