@@ -12,7 +12,6 @@ import {Observable} from 'rxjs';
 export class UserInfoService {
   route = USER_INFO_ROUTE;
 
-
   constructor(private http: HttpClient) {
   }
 

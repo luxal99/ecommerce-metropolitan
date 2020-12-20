@@ -1,8 +1,27 @@
 <div class="row">
-  <div class="col-sm">
+  <div class="col-sm" style="padding: 1em">
     <app-heading header="Proizvodi"></app-heading>
   </div>
-  <div class="col-sm text-right">
-    <button class="create-btn" mat-button (click)="openAddProductDialog()">Dodaj proizvod</button>
+  <div class="col-sm-10">
+    <mat-form-field appearance="fill">
+      <mat-label>Search</mat-label>
+      <input type="password" matInput>
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
   </div>
+</div>
+<div class="content">
+  <div class="row button-row text-left">
+    <div class="col-sm">
+      <button class="large-product-btn red" mat-button (click)="openAddProductDialog()">Dodaj proizvod</button>
+    </div>
+    <div class="col-sm ">
+      <button class="large-product-btn violet" mat-button (click)="openAddProductCategoryDialog()">Dodaj kategoriju</button>
+    </div>
+    <div class="col-sm">
+      <button class="large-product-btn " mat-button (click)="openAddProductDialog()">Dodaj brend</button>
+    </div>
+  </div>
+
+
 </div>

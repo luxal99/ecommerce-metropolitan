@@ -16,7 +16,7 @@ export class GenericService<T> {
   save(entity: T): Observable<T> {
     return this.http.post<T>(`${this.route}`, entity, {
       responseType: 'json',
-      headers: {Authorization: TOKEN_PREFIX + localStorage.getItem(TOKEN_NAME)}
+      headers: {Authorization: localStorage.getItem(TOKEN_NAME)}
     });
   }
 

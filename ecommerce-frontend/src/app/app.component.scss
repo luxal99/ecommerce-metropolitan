@@ -1,6 +1,10 @@
 $blue-font-color: #56CCF2;
 $darken-violet: #1a1a26;
 $light-violet: #212132;
+
+.dialog {
+  padding: 1em 2em;
+}
 .create-btn {
 
   width: 40%;
@@ -12,7 +16,9 @@ $light-violet: #212132;
   border-radius: 20px;
 
 }
-
+::ng-deep.mat-form-field-appearance-fill .mat-form-field-flex {
+  border-radius: 20px !important;
+}
 .row {
   margin-left: 0 !important;
   margin-right: 0 !important;

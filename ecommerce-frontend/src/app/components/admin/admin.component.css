@@ -1,3 +1,7 @@
+.dialog {
+  padding: 1em 2em;
+}
+
 .create-btn {
   width: 40%;
   background-color: #212132;
@@ -6,6 +10,10 @@
   font-family: "Poppins", sans-serif;
   padding: 0.5em 0;
   border-radius: 20px;
+}
+
+::ng-deep.mat-form-field-appearance-fill .mat-form-field-flex {
+  border-radius: 20px !important;
 }
 
 .row {
@@ -39,8 +47,8 @@ h3, h4, h5, h6 {
   margin-top: 5em;
   background-color: #1a1a26;
   padding: 6em 2em 2em 10em;
-  border-top-left-radius: 15em;
-  min-height: 91vh;
+  border-radius: 5em;
+  min-height: 85vh;
 }
 
 .menu {

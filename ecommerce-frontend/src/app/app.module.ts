@@ -15,6 +15,7 @@ import {LoginComponent} from './components/login/login.component';
 import {RegistrationComponent} from './components/registration/registration.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {AddProductCategoryDialogComponent} from './components/admin/product/add-product-category-dialog/add-product-category-dialog.component';
 
 // @ts-ignore
 @NgModule({
@@ -27,7 +28,8 @@ import {HttpClientModule} from '@angular/common/http';
     HeadingComponent,
     AddProductDialogComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    AddProductCategoryDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,7 @@ import {HttpClientModule} from '@angular/common/http';
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  entryComponents: [ProductComponent, GlobalComponent, AddProductDialogComponent],
+  entryComponents: [ProductComponent, AddProductCategoryDialogComponent, GlobalComponent, AddProductDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

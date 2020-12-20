@@ -1,4 +1,8 @@
-.create-btn {
+.dialog {
+  padding: 1em 2em;
+}
+
+.create-btn, .large-product-btn {
   width: 40%;
   background-color: #212132;
   color: #56CCF2;
@@ -6,6 +10,10 @@
   font-family: "Poppins", sans-serif;
   padding: 0.5em 0;
   border-radius: 20px;
+}
+
+::ng-deep.mat-form-field-appearance-fill .mat-form-field-flex {
+  border-radius: 20px !important;
 }
 
 .row {
@@ -28,6 +36,51 @@ h3, h4, h5, h6 {
 
 ::ng-deep.mat-form-field-underline {
   transform: none;
+}
+
+.large-product-btn {
+  padding: 3em;
+  width: 100%;
+}
+
+.red {
+  background-color: #ff0047;
+  color: #fff;
+}
+
+.violet {
+  background-color: #6e00ff;
+}
+
+.button-row {
+  padding: 0em 0em 5em 0;
+}
+
+.content {
+  padding: 5em 1em;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: #212132 !important;
+  transform: none !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: #212132 !important;
+}
+
+::ng-deep.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #212132;
+}
+
+mat-label, mat-icon {
+  color: #fff;
 }
 
 /*# sourceMappingURL=product.component.css.map */
