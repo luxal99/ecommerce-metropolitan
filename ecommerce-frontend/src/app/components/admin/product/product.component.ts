@@ -4,6 +4,7 @@ import {AddProductDialogComponent} from './add-product-dialog/add-product-dialog
 import {DialogOptions} from '../../../util/dialog-options';
 import {MatDialog} from '@angular/material';
 import {AddProductCategoryDialogComponent} from './add-product-category-dialog/add-product-category-dialog.component';
+import {AddProductBrandDialogComponent} from './add-product-brand-dialog/add-product-brand-dialog.component';
 
 @Component({
   selector: 'app-product',
@@ -24,6 +25,10 @@ export class ProductComponent implements OnInit {
 
   openAddProductCategoryDialog() {
     DialogUtil.openDialog(AddProductCategoryDialogComponent, DialogOptions.getOptions({}), this.dialog);
+  }
+
+  openAddProductBrandDialog() {
+    DialogUtil.openDialog(AddProductBrandDialogComponent, DialogOptions.getOptions({}), this.dialog);
   }
 
 

@@ -7,6 +7,7 @@ export const SHIPPING_ADDRESS_ROUTE = '/shippingAddress';
 export const ORDER_ROUTE = '/order';
 export const USER_INFO_ROUTE = '/userInfo';
 export const USER_ROUTE = '/user';
+
 export const TOKEN_NAME = 'Authorization';
 export const TOKEN_PREFIX = 'Bearer ';
 export const ADMIN_ROUTE = 'admin';

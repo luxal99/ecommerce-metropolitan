@@ -30,6 +30,15 @@ h3, h4, h5, h6 {
   font-family: "Poppins", sans-serif;
 }
 
+::ng-deep.mat-form-field-underline {
+  display: none;
+}
+
+::ng-deep.mat-dialog-container {
+  background-color: #1a1a26;
+  box-shadow: none;
+}
+
 ::ng-deep.mat-form-field-appearance-fill .mat-form-field-underline::before {
   background: none;
 }

@@ -38,7 +38,7 @@ mat-form-field {
 }
 
 ::ng-deep.mat-form-field-appearance-fill .mat-form-field-flex {
-  background-color: $light-violet;
+  background-color: $light-violet !important;
 }
 mat-label, mat-icon {
   color: #fff;

@@ -1,0 +1,14 @@
+<div class="dialog">
+  <h4 class="dialog-h3">Dodaj kategoriju proizvoda</h4>
+  <form [formGroup]="productBrandForm">
+
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Category title</mat-label>
+        <input formControlName="title" matInput>
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
+    <button mat-raised-button class="create-btn" (click)="save()">Dodaj brend</button>
+  </form>
+</div>

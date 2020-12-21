@@ -5,7 +5,8 @@
       "/user",
       "/login",
       "/role",
-      "/productCategory"
+      "/productCategory",
+      "/productBrand"
     ],
     "target": "http://localhost:8080",
     "secure": false
