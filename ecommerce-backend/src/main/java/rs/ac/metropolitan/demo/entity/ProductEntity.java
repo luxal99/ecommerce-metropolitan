@@ -1,32 +1,25 @@
 package rs.ac.metropolitan.demo.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.Objects;
 
 @Entity
 @Table(name = "product", schema = "ecommerce")
 public class ProductEntity extends BaseEntity implements Serializable {
 
-    @Basic(optional = false)
     @Column(name = "title")
     private String title;
 
-    @Basic(optional = false)
     @Column(name = "description")
     private String description;
 
-    @Basic(optional = false)
     @Column(name = "amount")
     private Integer amount;
 
-    @Basic(optional = false)
     @Column(name = "price")
     private Double price;
 
@@ -42,7 +35,6 @@ public class ProductEntity extends BaseEntity implements Serializable {
     private List<ProductImagesEntity> listOfImages;
 
     @ManyToMany(mappedBy = "listOfProducts")
-    @JsonIgnoreProperties("listOfOrders")
     private final List<OrderEntity> listOfOrders = new ArrayList<>();
 
     public String getTitle() {
@@ -93,6 +85,7 @@ public class ProductEntity extends BaseEntity implements Serializable {
         this.idProductBrand = idProductBrand;
     }
 
+    @JsonIgnore
     public List<ProductImagesEntity> getListOfImages() {
         return listOfImages;
     }
@@ -100,7 +93,7 @@ public class ProductEntity extends BaseEntity implements Serializable {
     public void setListOfImages(List<ProductImagesEntity> listOfImages) {
         this.listOfImages = listOfImages;
     }
-
+    @JsonIgnore
     public List<OrderEntity> getListOfOrders() {
         return listOfOrders;
     }

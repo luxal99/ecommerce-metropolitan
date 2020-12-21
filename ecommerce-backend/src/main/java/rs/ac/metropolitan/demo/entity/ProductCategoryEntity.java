@@ -1,7 +1,6 @@
 package rs.ac.metropolitan.demo.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,12 +10,10 @@ import java.util.List;
 @Table(name = "product_category", schema = "ecommerce")
 public class ProductCategoryEntity extends BaseEntity implements Serializable {
 
-    @Basic(optional = false)
     @Column(name = "title")
     private String title;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "idProductCategory")
-    @JsonIgnore
     private List<ProductEntity> listOfProducts;
 
 
@@ -27,7 +24,7 @@ public class ProductCategoryEntity extends BaseEntity implements Serializable {
     public void setTitle(String title) {
         this.title = title;
     }
-
+    @JsonIgnore
     public List<ProductEntity> getListOfProducts() {
         return listOfProducts;
     }
