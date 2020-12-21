@@ -59,6 +59,7 @@ export class AddProductDialogComponent implements OnInit {
   }
 
   async addFiles(event) {
+    // tslint:disable-next-line:prefer-for-of
     for (let index = 0; index < event.length; index++) {
       const element = event[index];
 
