@@ -1,5 +1,6 @@
 import {ProductCategory} from './ProductCategory';
 import {ProductBrand} from './ProductBrand';
+import {ProductImage} from './ProductImage';
 
 export class Product {
   id: number;
@@ -10,4 +11,5 @@ export class Product {
   idProductCategory: ProductCategory;
   idProductBrand: ProductBrand;
 
+  listOfImages: ProductImage[];
 }

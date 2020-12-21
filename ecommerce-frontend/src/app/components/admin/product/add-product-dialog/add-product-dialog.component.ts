@@ -17,6 +17,9 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import {CKEditorComponent} from '@ckeditor/ckeditor5-angular';
 import {ProductService} from '../../../../service/product.service';
 import {Product} from '../../../../models/Product';
+import {AngularFireStorage} from '@angular/fire/storage';
+import {ProductImage} from '../../../../models/ProductImage';
+import {ProductImageService} from '../../../../service/product-image.service';
 
 @Component({
   selector: 'app-add-product-dialog',
@@ -27,6 +30,9 @@ export class AddProductDialogComponent implements OnInit {
 
   @ViewChild('editor', {static: false}) editorComponent: CKEditorComponent;
   public Editor = ClassicEditor;
+
+  listOfImages: Array<ProductImage> = [];
+  fileUploadList: Array<any> = [];
 
   listOfProductBrands: Array<ProductBrand> = [];
   listOfProductCategories: Array<ProductCategory> = [];
@@ -44,12 +50,44 @@ export class AddProductDialogComponent implements OnInit {
   constructor(private productCategoryService: ProductCategoryService,
               private productBrandService: ProductBrandService,
               private productService: ProductService,
-              private snackBar: MatSnackBar) {
+              private productImageService: ProductImageService,
+              private snackBar: MatSnackBar, private afStorage: AngularFireStorage) {
   }
 
   ngOnInit() {
     this.getAll();
   }
+
+  async addFiles(event) {
+    for (let index = 0; index < event.length; index++) {
+      const element = event[index];
+
+      const elementIndex = this.fileUploadList.indexOf(element);
+      if (elementIndex === -1) {
+        this.fileUploadList.push(element);
+      }
+    }
+    await this.uploadFiles();
+  }
+
+
+  async uploadFiles() {
+
+    document.getElementById('spinner').style.display = 'block';
+
+    for (const file of this.fileUploadList) {
+      this.afStorage.upload(file.name, file)
+        .then(async () => {
+          const downloadUrl = await this.afStorage.ref(file.name).getDownloadURL().subscribe(async data => {
+            this.listOfImages.push(new ProductImage(file.name, data));
+            document.getElementById('spinner').style.display = 'none';
+          });
+        });
+    }
+    this.fileUploadList = [];
+
+  }
+
 
   getAll() {
     this.productBrandService.getAll().subscribe((resp) => {
@@ -66,7 +104,6 @@ export class AddProductDialogComponent implements OnInit {
   }
 
   save() {
-
     const product = new Product();
     product.title = this.basicProductForm.get(TITLE_FORM_CONTROL).value;
     product.amount = this.basicProductForm.get(AMOUNT_FORM_CONTROL).value;
@@ -75,8 +112,14 @@ export class AddProductDialogComponent implements OnInit {
     product.idProductCategory = this.productCategoryForm.get(PRODUCT_CATEGORY_FORM_CONTROL).value;
     product.description = this.editorComponent.editorInstance.getData();
 
-    console.log(product);
-    this.productService.save(product).subscribe(() => {
+    product.listOfImages = this.listOfImages;
+    this.productService.save(product).subscribe((resp) => {
+      console.log(this.listOfImages);
+      for (const image of this.listOfImages) {
+        image.idProduct = resp;
+        this.productImageService.save(image).subscribe(() => {
+        });
+      }
       OpenSnackbar.openSnackBar(this.snackBar, SUCCESS_MESSAGE);
     }, (err) => {
       console.log(err);

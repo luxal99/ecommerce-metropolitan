@@ -17,6 +17,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {AddProductCategoryDialogComponent} from './components/admin/product/add-product-category-dialog/add-product-category-dialog.component';
 import {AddProductBrandDialogComponent} from './components/admin/product/add-product-brand-dialog/add-product-brand-dialog.component';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFireStorageModule} from '@angular/fire/storage';
 
 // @ts-ignore
 @NgModule({
@@ -38,11 +40,23 @@ import {AddProductBrandDialogComponent} from './components/admin/product/add-pro
     CKEditorModule,
     AppRoutingModule,
     MaterialModule,
+    AngularFireModule.initializeApp({
+      apiKey: 'AIzaSyAz8PX_PdPZo7WmWuxLYVMDiJUOozl0Fn4',
+      authDomain: 'soy-smile-249718.firebaseapp.com',
+      databaseURL: 'https://soy-smile-249718.firebaseio.com',
+      projectId: 'soy-smile-249718',
+      storageBucket: 'soy-smile-249718.appspot.com',
+      messagingSenderId: '870517553704',
+      appId: '1:870517553704:web:d238ce266071d519f8131d',
+      measurementId: 'G-JGV7HTSL0B'
+    }),
+    AngularFireStorageModule,
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  entryComponents: [ProductComponent, AddProductBrandDialogComponent, AddProductCategoryDialogComponent, GlobalComponent, AddProductDialogComponent],
+  entryComponents: [ProductComponent, AddProductBrandDialogComponent,
+    AddProductCategoryDialogComponent, GlobalComponent, AddProductDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,7 @@
 <div class="dialog">
   <h4>Dodaj proizvod</h4>
   <mat-horizontal-stepper #stepper>
-    <mat-step [stepControl]="basicProductForm" >
+    <mat-step [stepControl]="basicProductForm">
       <div class="step">
         <form [formGroup]="basicProductForm">
           <div>
@@ -64,10 +64,31 @@
         <div class="inline-btn-div">
           <button (click)="stepper.previous()" mat-raised-button class="back-btn">Back</button>
           <button mat-button class="next-btn"
-                 (click)="save()" style="margin-left: 1em">Save
+                  (click)="stepper.next()" style="margin-left: 1em">Next
           </button>
         </div>
       </div>
+    </mat-step>
+    <mat-step>
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" multiple id="customFile" (change)="addFiles($event.target.files)">
+        <label class="custom-file-label" for="customFile">Izabei fajl</label>
+      </div>
+      <div style="padding: 2em 0 2em 0;display: none;" id="alex">
+        <mat-spinner></mat-spinner>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-2" *ngFor="let image of listOfImages" style="margin-top: 2em;">
+          <img src="{{image.url}}" alt="" class="img-fluid">
+          <div class="text-center">
+            <button class="silver-btn" mat-button style="margin-top: 1em;width: 90%;">Obrisi</button>
+          </div>
+        </div>
+      </div>
+      <button mat-button class="next-btn"
+              (click)="save()" style="margin-left: 1em;margin-top: 2em">Save
+      </button>
     </mat-step>
   </mat-horizontal-stepper>
 
