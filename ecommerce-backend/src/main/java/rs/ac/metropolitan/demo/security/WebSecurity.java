@@ -34,12 +34,15 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST, SIGN_UP_URL).permitAll()
                 .antMatchers(HttpMethod.GET, ROLE_ROUTE + "/**").permitAll()
+                .antMatchers(HttpMethod.GET, PRODUCT_ROUTE).permitAll()
+                .antMatchers(HttpMethod.GET, PRODUCT_CATEGORY_ROUTE).permitAll()
+                .antMatchers(HttpMethod.GET, PRODUCT_BRAND_ROUTE).permitAll()
                 .antMatchers(HttpMethod.POST, USER_INFO_ROUTE).permitAll()
                 .antMatchers(HttpMethod.GET, USER_INFO_ROUTE).hasRole(ROLE_ADMIN)
                 .antMatchers(HttpMethod.POST, PRODUCT_CATEGORY_ROUTE).hasRole(ROLE_ADMIN)
                 .anyRequest().authenticated()
                 .and()
-                .addFilter(new JWTAuthFilter(authenticationManager(),userRepository))
+                .addFilter(new JWTAuthFilter(authenticationManager(), userRepository))
                 .addFilter(new JWTAuthorizationFilter(authenticationManager(), userRepository))
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }

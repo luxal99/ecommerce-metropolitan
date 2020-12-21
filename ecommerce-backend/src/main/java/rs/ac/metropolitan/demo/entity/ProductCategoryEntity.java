@@ -16,7 +16,7 @@ public class ProductCategoryEntity extends BaseEntity implements Serializable {
     private String title;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "idProductCategory")
-    @JsonIgnoreProperties("listOfProducts")
+    @JsonIgnore
     private List<ProductEntity> listOfProducts;
 
 

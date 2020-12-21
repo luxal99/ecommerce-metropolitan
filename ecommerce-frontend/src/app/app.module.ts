@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
+import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HomeComponent} from './components/home/home.component';
@@ -16,7 +16,7 @@ import {RegistrationComponent} from './components/registration/registration.comp
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {AddProductCategoryDialogComponent} from './components/admin/product/add-product-category-dialog/add-product-category-dialog.component';
-import { AddProductBrandDialogComponent } from './components/admin/product/add-product-brand-dialog/add-product-brand-dialog.component';
+import {AddProductBrandDialogComponent} from './components/admin/product/add-product-brand-dialog/add-product-brand-dialog.component';
 
 // @ts-ignore
 @NgModule({
@@ -35,13 +35,14 @@ import { AddProductBrandDialogComponent } from './components/admin/product/add-p
   ],
   imports: [
     BrowserModule,
+    CKEditorModule,
     AppRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  entryComponents: [ProductComponent,AddProductBrandDialogComponent, AddProductCategoryDialogComponent, GlobalComponent, AddProductDialogComponent],
+  entryComponents: [ProductComponent, AddProductBrandDialogComponent, AddProductCategoryDialogComponent, GlobalComponent, AddProductDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

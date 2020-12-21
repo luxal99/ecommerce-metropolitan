@@ -1,3 +1,87 @@
+.dialog {
+  padding: 1em 2em;
+}
 
+.create-btn {
+  width: 40%;
+  background-color: #212132;
+  color: #56CCF2;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  padding: 0.5em 0;
+  border-radius: 20px;
+}
+
+::ng-deep.mat-form-field-appearance-fill .mat-form-field-flex {
+  border-radius: 20px !important;
+}
+
+.row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+h1, h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+}
+
+h3, h4, h5, h6 {
+  font-family: "Poppins", sans-serif;
+}
+
+::ng-deep.mat-form-field-underline {
+  display: none;
+}
+
+::ng-deep.mat-dialog-container {
+  background-color: #1a1a26;
+  box-shadow: none;
+}
+
+::ng-deep.mat-form-field-appearance-fill .mat-form-field-underline::before {
+  background: none;
+}
+
+::ng-deep.mat-form-field-underline {
+  transform: none;
+}
+
+mat-horizontal-stepper {
+  background-color: #1a1a26;
+}
+
+h4 {
+  color: #fff;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-icon, input {
+  color: #fff;
+}
+
+.back-btn {
+  width: 40%;
+  background-color: #212132;
+  border-radius: 20px;
+  padding: 0.4em 0;
+  color: #fff;
+}
+
+.next-btn {
+  width: 60%;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 0.4em 0;
+}
+
+.inline-btn-div {
+  display: inline-flex;
+  width: 100%;
+  margin-top: 2em;
+}
 
 /*# sourceMappingURL=add-product-dialog.component.css.map */

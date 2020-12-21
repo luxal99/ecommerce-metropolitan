@@ -1,0 +1,34 @@
+@import "../../../../app.component";
+
+mat-horizontal-stepper {
+  background-color: $darken-violet;
+}
+h4 {
+  color: #fff;
+}
+mat-form-field {
+  width: 100%;
+}
+
+mat-icon,input {
+  color: #fff;
+}
+
+.back-btn {
+  width: 40%;
+  background-color: $light-violet;
+  border-radius: 20px;
+  padding: .4em 0;
+  color: #fff;
+}
+.next-btn {
+  width: 60%;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: .4em 0;
+}
+.inline-btn-div{
+  display: inline-flex;width: 100%;margin-top: 2em
+}
+
+

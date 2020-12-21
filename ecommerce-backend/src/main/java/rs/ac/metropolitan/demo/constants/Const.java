@@ -12,7 +12,7 @@ public class Const {
     public static final String USER_INFO_ROUTE = "/userInfo";
     public static final String USER_ROUTE = "/user";
     public static final String SECRET = "SecretKeyToGenJWTs";
-    public static final long EXPIRATION_TIME = 60 * 60 * 60; // 1h
+    public static final long EXPIRATION_TIME = 100 * 100 * 100; // 1h
     public static final String TOKEN_PREFIX = "Bearer ";
     public static final String HEADER_STRING = "Authorization";
     public static final String SIGN_UP_URL = "/user";

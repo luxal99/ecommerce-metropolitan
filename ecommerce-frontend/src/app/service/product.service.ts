@@ -8,4 +8,5 @@ import {PRODUCT_ROUTE} from '../constant/const';
   providedIn: 'root'
 })
 export class ProductService extends GenericService<Product> {
+  route = PRODUCT_ROUTE;
 }

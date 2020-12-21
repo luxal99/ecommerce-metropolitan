@@ -1,6 +1,7 @@
 package rs.ac.metropolitan.demo.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -31,20 +32,17 @@ public class ProductEntity extends BaseEntity implements Serializable {
 
     @JoinColumn(name = "id_product_category", referencedColumnName = "id")
     @ManyToOne(optional = false)
-    @JsonIgnore()
     private ProductCategoryEntity idProductCategory;
 
     @JoinColumn(name = "id_product_brand", referencedColumnName = "id")
     @ManyToOne(optional = false)
-    @JsonIgnore()
     private ProductBrandEntity idProductBrand;
 
     @OneToMany(mappedBy = "idProduct")
-    @JsonIgnore()
     private List<ProductImagesEntity> listOfImages;
 
     @ManyToMany(mappedBy = "listOfProducts")
-    @JsonIgnore()
+    @JsonIgnoreProperties("listOfOrders")
     private final List<OrderEntity> listOfOrders = new ArrayList<>();
 
     public String getTitle() {

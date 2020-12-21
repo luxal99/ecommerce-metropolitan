@@ -23,6 +23,10 @@ export const USERNAME_FORM_CONTROL = 'username';
 export const PASSWORD_FORM_CONTROL = 'password';
 export const PASSWORD_CONFIRM_FORM_CONTROL = 'passwordConfirm';
 export const TITLE_FORM_CONTROL = 'title';
+export const AMOUNT_FORM_CONTROL = 'amount';
+export const PRICE_FORM_CONTROL = 'price';
+export const PRODUCT_BRAND_FORM_CONTROL = 'idProductBrand';
+export const PRODUCT_CATEGORY_FORM_CONTROL = 'idProductCategory';
 
 export const CLIENT_ROLE_NAME = 'ROLE_CLIENT';
 export const ADMIN_ROLE_NAME = 'ROLE_ADMIN';
