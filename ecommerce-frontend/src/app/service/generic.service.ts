@@ -21,9 +21,8 @@ export class GenericService<T> {
   }
 
   findById(id) {
-    return this.http.get(`${this.route}/` + id, {
-      responseType: 'json',
-      headers: {Authorization: TOKEN_PREFIX + localStorage.getItem(TOKEN_NAME)}
+    return this.http.get(`${this.route}?id=${id}` + id, {
+      responseType: 'json'
     });
   }
 

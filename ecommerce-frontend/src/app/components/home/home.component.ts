@@ -3,6 +3,8 @@ import {ProductCategory} from '../../models/ProductCategory';
 import {ProductCategoryService} from '../../service/product-category.service';
 import {Product} from '../../models/Product';
 import {ProductService} from '../../service/product.service';
+import {Router} from '@angular/router';
+import {PRODUCT_ROUTE} from '../../constant/const';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +18,8 @@ export class HomeComponent implements OnInit {
 
   bColor = '';
 
-  constructor(private productCategoryService: ProductCategoryService, private productService: ProductService) {
+  constructor(private productCategoryService: ProductCategoryService,
+              private productService: ProductService, private router: Router) {
   }
 
   ngOnInit() {
@@ -40,5 +43,9 @@ export class HomeComponent implements OnInit {
         e.bColor = 'hsl(' + Math.random() * 360 + ', 100%, 75%)';
       });
     });
+  }
+
+  openProduct(id: any) {
+    this.router.navigate([PRODUCT_ROUTE], {queryParams: {id}});
   }
 }

@@ -35,7 +35,7 @@ public class GenericController<T extends BaseEntity> {
     }
 
     @RequestMapping(value = "{id}", method = RequestMethod.GET)
-    public T get(@PathVariable(value = "id") Long id) {
+    public T get(@RequestParam(name = "id") Long id) {
         return repository.findById(id).get();
     }
 
