@@ -1,11 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
-html, body {
-  height: 100%;
+.dialog {
+  padding: 1em 2em;
 }
 
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+::ng-deep.mat-form-field-appearance-fill .mat-form-field-flex {
+  border-radius: 20px !important;
+}
+
+.row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+h1, h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+}
+
+h3, h4, h5, h6 {
+  font-family: "Poppins", sans-serif;
+}
+
+::ng-deep.mat-form-field-underline {
+  display: none;
+}
+
+::ng-deep.mat-dialog-container {
+  background-color: #1a1a26;
+  box-shadow: none;
+}
+
+::ng-deep.mat-form-field-appearance-fill .mat-form-field-underline::before {
+  background: none;
+}
+
+::ng-deep.mat-form-field-underline {
+  transform: none;
 }
 
 /*# sourceMappingURL=styles.css.map */

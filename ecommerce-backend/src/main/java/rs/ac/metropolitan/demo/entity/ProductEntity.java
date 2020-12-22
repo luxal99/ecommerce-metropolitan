@@ -6,9 +6,11 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name = "product", schema = "ecommerce")
+@XmlRootElement
 public class ProductEntity extends BaseEntity implements Serializable {
 
     @Column(name = "title")
@@ -31,6 +33,7 @@ public class ProductEntity extends BaseEntity implements Serializable {
     @ManyToOne(optional = false)
     private ProductBrandEntity idProductBrand;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "idProduct")
     private List<ProductImagesEntity> listOfImages;
 
@@ -85,7 +88,7 @@ public class ProductEntity extends BaseEntity implements Serializable {
         this.idProductBrand = idProductBrand;
     }
 
-    @JsonIgnore
+
     public List<ProductImagesEntity> getListOfImages() {
         return listOfImages;
     }
@@ -93,6 +96,7 @@ public class ProductEntity extends BaseEntity implements Serializable {
     public void setListOfImages(List<ProductImagesEntity> listOfImages) {
         this.listOfImages = listOfImages;
     }
+
     @JsonIgnore
     public List<OrderEntity> getListOfOrders() {
         return listOfOrders;

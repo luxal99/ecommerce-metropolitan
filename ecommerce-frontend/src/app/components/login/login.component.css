@@ -1,7 +1,3 @@
-.dialog {
-  padding: 1em 2em;
-}
-
 .create-btn {
   width: 40%;
   background-color: #212132;
@@ -10,6 +6,10 @@
   font-family: "Poppins", sans-serif;
   padding: 0.5em 0;
   border-radius: 20px;
+}
+
+.dialog {
+  padding: 1em 2em;
 }
 
 ::ng-deep.mat-form-field-appearance-fill .mat-form-field-flex {
@@ -28,6 +28,16 @@ h1, h2 {
 
 h3, h4, h5, h6 {
   font-family: "Poppins", sans-serif;
+}
+
+::-webkit-scrollbar {
+  height: 1em;
+  background-color: #212132;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #56CCF2;
+  border-radius: 10px;
 }
 
 ::ng-deep.mat-form-field-underline {
@@ -113,10 +123,6 @@ mat-form-field {
   background-color: #212132 !important;
 }
 
-.dialog {
-  padding: 1em 2em;
-}
-
 .create-btn {
   width: 40%;
   background-color: #212132;
@@ -125,6 +131,10 @@ mat-form-field {
   font-family: "Poppins", sans-serif;
   padding: 0.5em 0;
   border-radius: 20px;
+}
+
+.dialog {
+  padding: 1em 2em;
 }
 
 ::ng-deep.mat-form-field-appearance-fill .mat-form-field-flex {
@@ -143,6 +153,16 @@ h1, h2 {
 
 h3, h4, h5, h6 {
   font-family: "Poppins", sans-serif;
+}
+
+::-webkit-scrollbar {
+  height: 1em;
+  background-color: #212132;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #56CCF2;
+  border-radius: 10px;
 }
 
 ::ng-deep.mat-form-field-underline {

@@ -1,7 +1,3 @@
-.dialog {
-  padding: 1em 2em;
-}
-
 .create-btn, .large-product-btn {
   width: 40%;
   background-color: #212132;
@@ -10,6 +6,10 @@
   font-family: "Poppins", sans-serif;
   padding: 0.5em 0;
   border-radius: 20px;
+}
+
+.dialog {
+  padding: 1em 2em;
 }
 
 ::ng-deep.mat-form-field-appearance-fill .mat-form-field-flex {
@@ -30,6 +30,16 @@ h3, h4, h5, h6 {
   font-family: "Poppins", sans-serif;
 }
 
+::-webkit-scrollbar {
+  height: 1em;
+  background-color: #212132;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #56CCF2;
+  border-radius: 10px;
+}
+
 ::ng-deep.mat-form-field-underline {
   display: none;
 }
@@ -45,6 +55,11 @@ h3, h4, h5, h6 {
 
 ::ng-deep.mat-form-field-underline {
   transform: none;
+}
+
+h3 {
+  font-weight: bold;
+  color: #56CCF2;
 }
 
 .large-product-btn {
@@ -90,6 +105,31 @@ mat-form-field {
 
 mat-label, mat-icon {
   color: #fff;
+}
+
+.col-sm-2 h3, .col-sm-3 h3 {
+  color: #fff;
+}
+.col-sm-2 h5, .col-sm-3 h5 {
+  font-weight: bold;
+  color: #999;
+}
+
+.product-div {
+  height: 30vh;
+  overflow-y: scroll;
+}
+.product-div .product-row {
+  margin: 2em 1em;
+}
+.product-div .product-row .col-sm-3 button {
+  margin: 0.5em;
+  width: 40%;
+  padding: 0.4em 0;
+  border-radius: 20px;
+}
+.product-div .product-row .col-sm-3 .violet {
+  color: #56CCF2;
 }
 
 /*# sourceMappingURL=product.component.css.map */

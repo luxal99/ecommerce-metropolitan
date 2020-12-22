@@ -16,6 +16,7 @@ public class ProductBrandEntity extends BaseEntity implements Serializable {
     @Column(name = "title")
     private String title;
 
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "idProductBrand")
     private List<ProductEntity> listOfProducts;
 
@@ -28,7 +29,7 @@ public class ProductBrandEntity extends BaseEntity implements Serializable {
         this.title = title;
     }
 
-    @JsonIgnore
+
     public List<ProductEntity> getListOfProducts() {
         return listOfProducts;
     }
