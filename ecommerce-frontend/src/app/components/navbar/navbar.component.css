@@ -8,6 +8,10 @@
   border-radius: 20px;
 }
 
+.home {
+  margin: 3em 10em;
+}
+
 .dialog {
   padding: 1em 2em;
 }

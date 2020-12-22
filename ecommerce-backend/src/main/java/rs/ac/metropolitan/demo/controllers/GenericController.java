@@ -34,8 +34,8 @@ public class GenericController<T extends BaseEntity> {
         repository.deleteById(id);
     }
 
-    @RequestMapping(value = "{id}", method = RequestMethod.GET)
-    public T get(@RequestParam(name = "id") Long id) {
+    @RequestMapping(params = "id",method = RequestMethod.GET)
+    public T get(@RequestParam("id") Long id) {
         return repository.findById(id).get();
     }
 

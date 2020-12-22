@@ -23,7 +23,7 @@ import { ProductPipe } from './pipes/product.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FilterComponent } from './components/home/filter/filter.component';
 import { ProductOverviewComponent } from './components/home/product-overview/product-overview.component';
-
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 // @ts-ignore
 @NgModule({
   declarations: [
@@ -65,7 +65,7 @@ import { ProductOverviewComponent } from './components/home/product-overview/pro
   ],
   entryComponents: [ProductComponent, AddProductBrandDialogComponent,
     AddProductCategoryDialogComponent, GlobalComponent, AddProductDialogComponent],
-  providers: [],
+  providers: [  { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 // @ts-ignore

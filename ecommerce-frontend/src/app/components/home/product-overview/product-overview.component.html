@@ -1,1 +1,18 @@
-<p>product-overview works!</p>
+<app-navbar></app-navbar>
+<div class="home">
+  <div class="row">
+    <div class="col-sm">
+      <img  [src]="firstImage.url" height="400px" width="100%" style="zoom: 80%">
+      <div class="row">
+        <div class="col-sm" *ngFor="let image of product.listOfImages">
+          <img [src]="image.url" class="img-fluid small-img" (click)="changePicture(image)">
+        </div>
+      </div>
+    </div>
+    <div class="col-sm right-col">
+      <h2>{{product.title}}</h2>
+      <p [innerHTML]="product.description"></p>
+      <button mat-raised-button class="create-btn">Add to card</button>
+    </div>
+  </div>
+</div>

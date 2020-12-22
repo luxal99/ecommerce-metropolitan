@@ -20,8 +20,8 @@ export class GenericService<T> {
     });
   }
 
-  findById(id) {
-    return this.http.get(`${this.route}?id=${id}` + id, {
+  findById(id): Observable<T> {
+    return this.http.get<T>(`${this.route}?id=${id}`, {
       responseType: 'json'
     });
   }
