@@ -21,6 +21,8 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import { ProductPipe } from './pipes/product.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FilterComponent } from './components/home/filter/filter.component';
+import { ProductOverviewComponent } from './components/home/product-overview/product-overview.component';
 
 // @ts-ignore
 @NgModule({
@@ -37,7 +39,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     AddProductCategoryDialogComponent,
     AddProductBrandDialogComponent,
     ProductPipe,
-    NavbarComponent
+    NavbarComponent,
+    FilterComponent,
+    ProductOverviewComponent
   ],
   imports: [
     BrowserModule,
