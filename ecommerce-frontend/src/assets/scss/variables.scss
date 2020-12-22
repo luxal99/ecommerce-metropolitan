@@ -33,19 +33,19 @@ h1, h2 {
   font-weight: bold;
 }
 
-h3, h4, h5, h6 {
+h3, h4, h5, h6,p {
   font-family: 'Poppins', sans-serif;
 
 }
 
 ::-webkit-scrollbar {
-  height: 1em;
-  background-color: $light-violet;
+  height: 1em !important;
+  background-color: $light-violet !important;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: $blue-font-color;
-  border-radius: 10px;
+  background: $blue-font-color !important;
+  border-radius: 10px !important;
 }
 
 

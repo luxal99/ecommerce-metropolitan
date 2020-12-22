@@ -26,18 +26,18 @@ h1, h2 {
   font-weight: bold;
 }
 
-h3, h4, h5, h6 {
+h3, h4, h5, h6, p {
   font-family: "Poppins", sans-serif;
 }
 
 ::-webkit-scrollbar {
-  height: 1em;
-  background-color: #212132;
+  height: 1em !important;
+  background-color: #212132 !important;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #56CCF2;
-  border-radius: 10px;
+  background: #56CCF2 !important;
+  border-radius: 10px !important;
 }
 
 ::ng-deep.mat-form-field-underline {
@@ -109,8 +109,45 @@ mat-form-field {
   background-color: #f3f4f7;
   border-radius: 20px;
   margin: 1em;
+  cursor: pointer;
 }
 .category-div .category-col h5 {
+  font-weight: bold;
+}
+
+.product-col {
+  border: 1px solid #eee !important;
+  border-radius: 20px;
+  margin: 1em;
+  padding: 0 !important;
+}
+.product-col img {
+  padding: 3em;
+}
+.product-col .col-body {
+  padding: 2em;
+  margin: 1em;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.product-col .col-body h6 {
+  font-weight: bold;
+}
+
+.h3-bold {
+  font-weight: bold;
+}
+
+.about-div span {
+  font-weight: bold;
+}
+.about-div .h3-bold {
+  padding-top: 1.5em;
+}
+.about-div mat-icon {
+  font-size: 40px;
+  width: 40px;
+  height: 40px;
   font-weight: bold;
 }
 

@@ -37,4 +37,14 @@ h3, h4, h5, h6 {
   transform: none;
 }
 
+::-webkit-scrollbar {
+  height: 1em !important;
+  background-color: #212132 !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #56CCF2 !important;
+  border-radius: 10px !important;
+}
+
 /*# sourceMappingURL=styles.css.map */

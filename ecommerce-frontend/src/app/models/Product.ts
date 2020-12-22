@@ -12,4 +12,5 @@ export class Product {
   idProductBrand: ProductBrand;
 
   listOfImages: ProductImage[];
+  bColor: string;
 }

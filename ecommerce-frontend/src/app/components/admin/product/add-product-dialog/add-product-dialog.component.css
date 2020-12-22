@@ -26,18 +26,18 @@ h1, h2 {
   font-weight: bold;
 }
 
-h3, h4, h5, h6 {
+h3, h4, h5, h6, p {
   font-family: "Poppins", sans-serif;
 }
 
 ::-webkit-scrollbar {
-  height: 1em;
-  background-color: #212132;
+  height: 1em !important;
+  background-color: #212132 !important;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #56CCF2;
-  border-radius: 10px;
+  background: #56CCF2 !important;
+  border-radius: 10px !important;
 }
 
 ::ng-deep.mat-form-field-underline {

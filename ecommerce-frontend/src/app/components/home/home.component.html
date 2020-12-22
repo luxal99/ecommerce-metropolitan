@@ -6,21 +6,59 @@
       <h3>In Every Category</h3>
       <mat-form-field appearance="fill">
         <mat-label>Amount</mat-label>
-        <input  type="text" matInput>
+        <input type="text" matInput>
         <mat-icon matSuffix>phone</mat-icon>
 
       </mat-form-field>
     </div>
     <div class="col-sm ">
-      <img  class="img-fluid" src="../../../assets/img/ecommerce-buy-vector-illustration-5de18f29f32c3.png">
+      <img class="img-fluid" src="../../../assets/img/ecommerce-buy-vector-illustration-5de18f29f32c3.png">
     </div>
   </div>
   <div class="category-div">
-    <h3 >Categories</h3>
+    <h3>Categories</h3>
     <div class="row">
       <div class="col-sm category-col text-center" *ngFor="let productCategory of listOfProductCategories">
         <h5>{{productCategory.title}}</h5>
       </div>
     </div>
   </div>
+
+  <div class="category-div">
+    <h3>Products</h3>
+    <div class="row">
+      <div class="col-sm product-col text-center" *ngFor="let product of listOfLatestProducts">
+        <img [src]="product.listOfImages[0].url" width="300px" height="240px">
+        <div class="col-body" [ngStyle]="{'background-color': product.bColor}">
+          <h5>{{product.title}}</h5>
+          <h6>{{product.price}}din</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-div">
+    <div class="row">
+      <div class="col-sm">
+        <h3>Why Trust <br> <span>Consumer</span> <br> <span>Voice?</span></h3>
+        <button class="create-btn" mat-raised-button>View more</button>
+      </div>
+      <div class="col-sm text-center">
+        <mat-icon style="color: #ff0047">search</mat-icon>
+        <h3 class="h3-bold">Research</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+      </div>
+      <div class="col-sm text-center">
+        <mat-icon style="color: #6e00ff">chat_bubble</mat-icon>
+        <h3 class="h3-bold">Talk</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+      </div>
+      <div class="col-sm text-center">
+        <mat-icon style="color: #56CCF2">star</mat-icon>
+        <h3 class="h3-bold">Research</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+      </div>
+    </div>
+  </div>
+
 </div>
