@@ -13,8 +13,8 @@
   </div>
 </div>
 <div class="content">
-  <div class="row button-row text-left">
-    <div class="col-sm">
+  <div class="row button-row text-left ">
+    <div class="col-sm ">
       <button class="large-product-btn red" mat-button (click)="openAddProductDialog()">Dodaj proizvod</button>
     </div>
     <div class="col-sm ">
@@ -26,7 +26,7 @@
     </div>
   </div>
   <div class="product-div">
-    <div class="row product-row" *ngFor="let product of listOfProducts|product:searchText">
+    <div class="row product-row " *ngFor="let product of listOfProducts|product:searchText">
       <div class="col-sm-2">
         <img class="img-fluid" [src]="product.listOfImages[0].url">
       </div>
@@ -44,9 +44,9 @@
       </div>
       <div class="col-sm-3">
         <div class="button-inline">
-          <button mat-raised-button class="violet">Edit</button>
+          <button mat-raised-button class="edit-btn">Edit</button>
 
-          <button mat-raised-button class="red">Delete</button>
+          <button mat-raised-button class="delete-btn">Delete</button>
         </div>
       </div>
     </div>

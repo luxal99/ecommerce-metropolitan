@@ -57,6 +57,29 @@ h3, h4, h5, h6 {
   transform: none;
 }
 
+.title-in-col h3 {
+  color: #fff;
+}
+.title-in-col h5 {
+  font-weight: bold;
+  color: #999;
+}
+
+.button-inline button {
+  width: 40%;
+  margin: 1em;
+  border-radius: 20px;
+  padding: 0.4em 0;
+}
+.button-inline .edit-btn {
+  background-color: #6e00ff;
+  color: #56CCF2;
+}
+.button-inline .delete-btn {
+  background-color: #ff0047;
+  color: #fff;
+}
+
 .admin {
   background-color: #212132;
   min-height: 100vh;

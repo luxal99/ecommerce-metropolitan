@@ -1,4 +1,5 @@
 @import "../../../../assets/scss/variables";
+
 h3 {
   font-weight: bold;
   color: $blue-font-color;
@@ -15,12 +16,12 @@ input {
 }
 
 .red {
-  background-color: #ff0047;
+  background-color: $red;
   color: #fff;
 }
 
 .violet {
-  background-color: #6e00ff;
+  background-color: $violet;
 }
 
 .button-row {
@@ -54,21 +55,15 @@ mat-label, mat-icon {
   color: #fff;
 }
 
-.col-sm-2, .col-sm-3 {
-  h3 {
-    color: #fff;
-  }
 
-  h5 {
-    font-weight: bold;
-    color: #999;
-  }
-}
-.product-div{
+.product-div {
   height: 30vh;
   overflow-y: scroll;
+
   .product-row {
     margin: 2em 1em;
+    @extend .title-in-col;
+
     .col-sm-3 {
       button {
         margin: .5em;

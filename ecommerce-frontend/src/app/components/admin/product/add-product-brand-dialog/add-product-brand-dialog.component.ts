@@ -13,6 +13,7 @@ import {OpenSnackbar} from '../../../../util/snackbar';
 })
 export class AddProductBrandDialogComponent implements OnInit {
 
+  listOfProductBrands: Array<ProductBrand> = [];
   productBrandForm = new FormGroup({
     title: new FormControl('', Validators.required)
   });
@@ -21,6 +22,13 @@ export class AddProductBrandDialogComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getAll();
+  }
+
+  getAll() {
+    this.productBrandService.getAll().subscribe((productBrands) => {
+      this.listOfProductBrands = productBrands;
+    });
   }
 
   save() {
@@ -28,6 +36,13 @@ export class AddProductBrandDialogComponent implements OnInit {
       OpenSnackbar.openSnackBar(this.snackbar, SUCCESS_MESSAGE);
     }, error => {
       OpenSnackbar.openSnackBar(this.snackbar, ERR_MESSAGE);
+    });
+  }
+
+  delete(id: number) {
+    this.productBrandService.delete(id).subscribe((resp) => {
+      console.log(resp);
+      this.getAll();
     });
   }
 }

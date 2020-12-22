@@ -3,3 +3,13 @@
 input {
   color: #fff;
 }
+::ng-deep.mat-tab-label, .mat-tab-link {
+  color: #fff !important;
+}
+.dialog-tabs {
+  padding: 4em 2em;
+}
+.row {
+  margin: 2em 0;
+  @extend .title-in-col
+}
