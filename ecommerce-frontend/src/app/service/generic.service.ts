@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {TOKEN_NAME, TOKEN_PREFIX} from '../constant/const';
 
@@ -27,10 +27,10 @@ export class GenericService<T> {
     });
   }
 
-  getAll(): Observable<T[]> {
+  getAll(headers?: HttpHeaders): Observable<T[]> {
     return this.http.get<T[]>(`${this.route}`, {
       responseType: 'json',
-      headers: {Authorization: TOKEN_PREFIX + localStorage.getItem(TOKEN_NAME)}
+      headers
     });
   }
 
