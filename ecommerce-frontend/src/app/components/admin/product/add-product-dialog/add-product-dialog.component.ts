@@ -20,6 +20,8 @@ import {Product} from '../../../../models/Product';
 import {AngularFireStorage} from '@angular/fire/storage';
 import {ProductImage} from '../../../../models/ProductImage';
 import {ProductImageService} from '../../../../service/product-image.service';
+import {RouterHandler} from '../../../../util/router';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-product-dialog',
@@ -51,6 +53,7 @@ export class AddProductDialogComponent implements OnInit {
               private productBrandService: ProductBrandService,
               private productService: ProductService,
               private productImageService: ProductImageService,
+              private router: Router,
               private snackBar: MatSnackBar, private afStorage: AngularFireStorage) {
   }
 
@@ -94,13 +97,13 @@ export class AddProductDialogComponent implements OnInit {
     this.productBrandService.getAll().subscribe((resp) => {
       this.listOfProductBrands = resp;
     }, () => {
-      OpenSnackbar.openSnackBar(this.snackBar, ERR_MESSAGE);
+      RouterHandler.backToLogin(this.router);
     });
 
     this.productCategoryService.getAll().subscribe((resp) => {
       this.listOfProductCategories = resp;
     }, () => {
-      OpenSnackbar.openSnackBar(this.snackBar, ERR_MESSAGE);
+      RouterHandler.backToLogin(this.router);
     });
   }
 

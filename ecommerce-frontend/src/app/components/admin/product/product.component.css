@@ -67,6 +67,10 @@ h3 {
   width: 100%;
 }
 
+input {
+  color: #fff;
+}
+
 .red {
   background-color: #ff0047;
   color: #fff;

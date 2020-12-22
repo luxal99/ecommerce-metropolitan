@@ -9,6 +9,9 @@ import {ProductService} from '../../../service/product.service';
 import {Product} from '../../../models/Product';
 import {OpenSnackbar} from '../../../util/snackbar';
 import {ERR_MESSAGE} from '../../../constant/const';
+import {FormControl, FormGroup} from '@angular/forms';
+import {Router} from '@angular/router';
+import {RouterHandler} from '../../../util/router';
 
 @Component({
   selector: 'app-product',
@@ -18,8 +21,13 @@ import {ERR_MESSAGE} from '../../../constant/const';
 export class ProductComponent implements OnInit {
 
   listOfProducts: Array<Product> = [];
+  searchText = '';
 
-  constructor(private dialog: MatDialog, private productService: ProductService, private snackBar: MatSnackBar) {
+  searchForm = new FormGroup({
+    searchText: new FormControl('')
+  });
+
+  constructor(private dialog: MatDialog, private productService: ProductService, private router: Router, private snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
@@ -30,7 +38,7 @@ export class ProductComponent implements OnInit {
     this.productService.getAll().subscribe((products) => {
       this.listOfProducts = products;
     }, () => {
-      OpenSnackbar.openSnackBar(this.snackBar, ERR_MESSAGE);
+      RouterHandler.backToLogin(this.router);
     });
   }
 

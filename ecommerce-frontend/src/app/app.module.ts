@@ -19,6 +19,7 @@ import {AddProductCategoryDialogComponent} from './components/admin/product/add-
 import {AddProductBrandDialogComponent} from './components/admin/product/add-product-brand-dialog/add-product-brand-dialog.component';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireStorageModule} from '@angular/fire/storage';
+import { ProductPipe } from './pipes/product.pipe';
 
 // @ts-ignore
 @NgModule({
@@ -33,7 +34,8 @@ import {AngularFireStorageModule} from '@angular/fire/storage';
     LoginComponent,
     RegistrationComponent,
     AddProductCategoryDialogComponent,
-    AddProductBrandDialogComponent
+    AddProductBrandDialogComponent,
+    ProductPipe
   ],
   imports: [
     BrowserModule,
