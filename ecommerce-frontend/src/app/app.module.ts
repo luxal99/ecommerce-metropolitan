@@ -20,6 +20,7 @@ import {AddProductBrandDialogComponent} from './components/admin/product/add-pro
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import { ProductPipe } from './pipes/product.pipe';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 // @ts-ignore
 @NgModule({
@@ -35,7 +36,8 @@ import { ProductPipe } from './pipes/product.pipe';
     RegistrationComponent,
     AddProductCategoryDialogComponent,
     AddProductBrandDialogComponent,
-    ProductPipe
+    ProductPipe,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
