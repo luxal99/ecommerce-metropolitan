@@ -34,7 +34,7 @@ public class ProductEntity extends BaseEntity implements Serializable {
     private ProductBrandEntity idProductBrand;
 
     @JsonManagedReference
-    @OneToMany(mappedBy = "idProduct")
+    @OneToMany(mappedBy = "idProduct", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<ProductImagesEntity> listOfImages;
 
     @ManyToMany(mappedBy = "listOfProducts")

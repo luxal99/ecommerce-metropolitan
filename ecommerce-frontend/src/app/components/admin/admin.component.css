@@ -92,9 +92,12 @@ h3, h4, h5, h6 {
   border-radius: 5em;
   min-height: 85vh;
 }
+.admin img {
+  margin-bottom: 3em;
+}
 
 .menu {
-  padding: 15em 2em;
+  padding: 10em 2em;
 }
 
 h4 {

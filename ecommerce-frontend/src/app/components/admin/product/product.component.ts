@@ -42,6 +42,14 @@ export class ProductComponent implements OnInit {
     });
   }
 
+  delete(id: number) {
+    this.productService.delete(id).subscribe(() => {
+      this.getAll();
+    }, error => {
+      OpenSnackbar.openSnackBar(this.snackBar, ERR_MESSAGE);
+    });
+  }
+
   openAddProductDialog() {
     DialogUtil.openDialog(AddProductDialogComponent, DialogOptions.getOptions({}), this.dialog);
   }
