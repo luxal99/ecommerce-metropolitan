@@ -1,1 +1,37 @@
-<p>filter works!</p>
+<app-navbar></app-navbar>
+<div class="home">
+  <div>
+    <form [formGroup]="searchForm">
+        <mat-form-field appearance="fill">
+          <mat-label>Product brand</mat-label>
+          <mat-select formControlName="idProductBrand">
+            <mat-option *ngFor="let productBrand of listOfProductBrand" [value]="productBrand">
+              {{productBrand.title}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Product category</mat-label>
+          <mat-select formControlName="idProductCategory">
+            <mat-option *ngFor="let productCategory of listOfProductCategories" [value]="productCategory">
+              {{productCategory.title}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Price from</mat-label>
+        <input formControlName="priceFrom" type="number" matInput>
+        <mat-icon matSuffix>phone</mat-icon>
+
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Price to</mat-label>
+        <input formControlName="priceTo" type="number" matInput>
+        <mat-icon matSuffix>phone</mat-icon>
+
+      </mat-form-field>
+
+    </form>
+  </div>
+</div>

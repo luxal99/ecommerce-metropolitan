@@ -4,7 +4,7 @@ import {ProductCategoryService} from '../../service/product-category.service';
 import {Product} from '../../models/Product';
 import {ProductService} from '../../service/product.service';
 import {Router} from '@angular/router';
-import {PRODUCT_ROUTE} from '../../constant/const';
+import {FILTER_ROUTE, PRODUCT_ROUTE} from '../../constant/const';
 
 @Component({
   selector: 'app-home',
@@ -43,6 +43,11 @@ export class HomeComponent implements OnInit {
         e.bColor = 'hsl(' + Math.random() * 360 + ', 100%, 75%)';
       });
     });
+  }
+
+  searchByCategory(idProductCategory: string) {
+    this.router.navigate([FILTER_ROUTE], {queryParams: {idProductCategory}});
+
   }
 
   openProduct(id: any) {

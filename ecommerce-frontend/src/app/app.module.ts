@@ -24,6 +24,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FilterComponent } from './components/home/filter/filter.component';
 import { ProductOverviewComponent } from './components/home/product-overview/product-overview.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { ProductBindingComponent } from './components/home/product-binding/product-binding.component';
 // @ts-ignore
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     ProductPipe,
     NavbarComponent,
     FilterComponent,
-    ProductOverviewComponent
+    ProductOverviewComponent,
+    ProductBindingComponent
   ],
   imports: [
     BrowserModule,
