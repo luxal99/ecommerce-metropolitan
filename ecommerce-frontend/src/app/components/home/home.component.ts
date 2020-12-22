@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
 
   }
 
-  openProduct(id: any) {
-    this.router.navigate([PRODUCT_ROUTE], {queryParams: {id}});
-  }
+    openProduct(id: any) {
+      this.router.navigate([PRODUCT_ROUTE], {queryParams: {id}});
+    }
 }

@@ -5,4 +5,6 @@ export interface ProductFilter {
   price?: number;
   idProductCategory?: string;
   idProductBrand?: string;
+  listOfImages: Array<any>;
+  bColor?;
 }

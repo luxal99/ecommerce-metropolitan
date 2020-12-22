@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"product-binding.component.css"}
+{"version":3,"sourceRoot":"","sources":["product-binding.component.scss"],"names":[],"mappings":"AACA;EACE;EACA;EACA;EACA;;AAEA;EACE;;AAGF;EACE;EACA;EACA;EACA;;AAEA;EACE;;;AAKN;EACE","file":"product-binding.component.css"}

@@ -7,6 +7,7 @@ import {ProductBrandService} from '../../../service/product-brand.service';
 import {ProductBrand} from '../../../models/ProductBrand';
 import {ProductCategory} from '../../../models/ProductCategory';
 import {FormControl, FormGroup} from '@angular/forms';
+import {Product} from '../../../models/Product';
 
 @Component({
   selector: 'app-filter',
@@ -25,6 +26,7 @@ export class FilterComponent implements OnInit {
 
   listOfProductBrand: Array<ProductBrand> = [];
   listOfProductCategories: Array<ProductCategory> = [];
+  listOfFilteredProduct: Array<ProductFilter> = [];
 
   constructor(private router: ActivatedRoute,
               private productService: ProductService,
@@ -54,12 +56,14 @@ export class FilterComponent implements OnInit {
           id: x.id,
           title: x.title,
           idProductBrand: x.idProductBrand.title,
-          idProductCategory: x.idProductCategory.title
+          idProductCategory: x.idProductCategory.title,
+          listOfImages: x.listOfImages,
+          price: x.price,
+          bColor: 'hsl(' + Math.random() * 360 + ', 100%, 75%)'
         }));
         dtoList.forEach(product => {
-
           if (Object.values(params).every(x => Object.values(product).includes(x))) {
-            console.log(product);
+            this.listOfFilteredProduct.push(product);
           }
         });
       });

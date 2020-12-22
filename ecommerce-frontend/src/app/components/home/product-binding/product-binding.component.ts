@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {PRODUCT_ROUTE} from '../../../constant/const';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-product-binding',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-binding.component.scss']
 })
 export class ProductBindingComponent implements OnInit {
+  @Input() listOfProducts: Array<any>;
 
-  constructor() { }
+  constructor(private router: Router) {
+  }
 
   ngOnInit() {
   }
 
+  openProduct(id: any) {
+    this.router.navigate([PRODUCT_ROUTE], {queryParams: {id}});
+  }
 }

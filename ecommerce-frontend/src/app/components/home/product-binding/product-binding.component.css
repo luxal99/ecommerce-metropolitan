@@ -1,3 +1,24 @@
+.product-col {
+  border: 1px solid #eee !important;
+  border-radius: 20px;
+  margin: 1em;
+  padding: 0 !important;
+}
+.product-col img {
+  padding: 3em;
+}
+.product-col .col-body {
+  padding: 2em;
+  margin: 1em;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.product-col .col-body h6 {
+  font-weight: bold;
+}
 
+.h3-bold {
+  font-weight: bold;
+}
 
 /*# sourceMappingURL=product-binding.component.css.map */
