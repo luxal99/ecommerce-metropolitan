@@ -16,12 +16,18 @@
       <button class="large-product-btn red" mat-button (click)="openAddProductDialog()">Dodaj proizvod</button>
     </div>
     <div class="col-sm ">
-      <button class="large-product-btn violet" mat-button (click)="openAddProductCategoryDialog()">Dodaj kategoriju</button>
+      <button class="large-product-btn violet" mat-button (click)="openAddProductCategoryDialog()">Dodaj kategoriju
+      </button>
     </div>
     <div class="col-sm">
       <button class="large-product-btn " mat-button (click)="openAddProductBrandDialog()">Dodaj brend</button>
     </div>
   </div>
-
-
+  <div *ngFor="let product of listOfProducts">
+    <div class="row">
+      <div class="col-sm-2">
+        <img class="img-fluid" [src]="product.listOfImages[0].url">
+      </div>
+    </div>
+  </div>
 </div>
