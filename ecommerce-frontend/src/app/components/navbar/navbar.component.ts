@@ -2,6 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {FILTER_ROUTE, SEARCH_FORM_CONTROL} from '../../constant/const';
 import {FormControl, FormGroup} from '@angular/forms';
+import {MatDialog} from '@angular/material';
+import {DialogUtil} from '../../util/dialog-util';
+import {CartDialogComponent} from './cart-dialog/cart-dialog.component';
+import {DialogOptions} from '../../util/dialog-options';
+import {Options} from '../../models/Options';
 
 @Component({
   selector: 'app-navbar',
@@ -14,11 +19,15 @@ export class NavbarComponent implements OnInit {
     search: new FormControl('')
   });
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private dialog: MatDialog) {
   }
 
   ngOnInit() {
     this.addListener();
+  }
+
+  openCartDialog() {
+    DialogUtil.openDialog(CartDialogComponent, new Options('40%', {right: '0'}, '100vh'), this.dialog);
   }
 
   addListener() {
