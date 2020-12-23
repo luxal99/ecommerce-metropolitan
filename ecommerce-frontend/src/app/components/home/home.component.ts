@@ -5,6 +5,7 @@ import {Product} from '../../models/Product';
 import {ProductService} from '../../service/product.service';
 import {Router} from '@angular/router';
 import {FILTER_ROUTE, PRODUCT_ROUTE} from '../../constant/const';
+import {CartService} from '../../service/cart.service';
 
 @Component({
   selector: 'app-home',
@@ -16,10 +17,8 @@ export class HomeComponent implements OnInit {
   listOfProductCategories: Array<ProductCategory> = [];
   listOfLatestProducts: Array<Product> = [];
 
-  bColor = '';
-
   constructor(private productCategoryService: ProductCategoryService,
-              private productService: ProductService, private router: Router) {
+              private productService: ProductService, private router: Router, private cartService: CartService) {
   }
 
   ngOnInit() {
@@ -47,10 +46,7 @@ export class HomeComponent implements OnInit {
 
   searchByCategory(idProductCategory: string) {
     this.router.navigate([FILTER_ROUTE], {queryParams: {idProductCategory}});
-
   }
 
-    openProduct(id: any) {
-      this.router.navigate([PRODUCT_ROUTE], {queryParams: {id}});
-    }
+
 }

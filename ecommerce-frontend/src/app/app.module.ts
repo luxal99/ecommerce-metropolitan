@@ -19,12 +19,14 @@ import {AddProductCategoryDialogComponent} from './components/admin/product/add-
 import {AddProductBrandDialogComponent} from './components/admin/product/add-product-brand-dialog/add-product-brand-dialog.component';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireStorageModule} from '@angular/fire/storage';
-import { ProductPipe } from './pipes/product.pipe';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { FilterComponent } from './components/home/filter/filter.component';
-import { ProductOverviewComponent } from './components/home/product-overview/product-overview.component';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { ProductBindingComponent } from './components/home/product-binding/product-binding.component';
+import {ProductPipe} from './pipes/product.pipe';
+import {NavbarComponent} from './components/navbar/navbar.component';
+import {FilterComponent} from './components/home/filter/filter.component';
+import {ProductOverviewComponent} from './components/home/product-overview/product-overview.component';
+import {HashLocationStrategy, LocationStrategy} from '@angular/common';
+import {ProductBindingComponent} from './components/home/product-binding/product-binding.component';
+import {CartDialogComponent} from './components/navbar/cart-dialog/cart-dialog.component';
+
 // @ts-ignore
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { ProductBindingComponent } from './components/home/product-binding/produ
     NavbarComponent,
     FilterComponent,
     ProductOverviewComponent,
-    ProductBindingComponent
+    ProductBindingComponent,
+    CartDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -66,8 +69,8 @@ import { ProductBindingComponent } from './components/home/product-binding/produ
     BrowserAnimationsModule
   ],
   entryComponents: [ProductComponent, AddProductBrandDialogComponent,
-    AddProductCategoryDialogComponent, GlobalComponent, AddProductDialogComponent],
-  providers: [  { provide: LocationStrategy, useClass: HashLocationStrategy }],
+    AddProductCategoryDialogComponent, GlobalComponent, AddProductDialogComponent, CartDialogComponent],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 // @ts-ignore
