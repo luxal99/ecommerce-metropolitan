@@ -1,5 +1,10 @@
 @import "../../../../assets/scss/variables";
 mat-form-field {
   margin:.5em;
-  width: 23%;
+  width: 100%;
+}
+
+button {
+  margin-top: 1em;
+  width: 100% !important;
 }

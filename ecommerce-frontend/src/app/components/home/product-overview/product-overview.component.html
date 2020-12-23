@@ -4,7 +4,7 @@
     <div class="col-sm">
       <img  [src]="firstImage.url" height="400px" width="100%" style="zoom: 80%">
       <div class="row">
-        <div class="col-sm" *ngFor="let image of product.listOfImages">
+        <div class="col-sm-3" *ngFor="let image of product.listOfImages">
           <img [src]="image.url" class="img-fluid small-img" (click)="changePicture(image)">
         </div>
       </div>

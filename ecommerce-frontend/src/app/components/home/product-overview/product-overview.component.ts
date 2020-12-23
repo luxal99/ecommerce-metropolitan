@@ -18,7 +18,7 @@ export class ProductOverviewComponent implements OnInit {
   }
 
   ngOnInit() {
-     this.findProduct();
+    this.findProduct();
   }
 
   findProduct() {

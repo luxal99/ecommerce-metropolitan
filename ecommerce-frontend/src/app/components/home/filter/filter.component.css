@@ -86,7 +86,12 @@ h3, h4, h5, h6, p {
 
 mat-form-field {
   margin: 0.5em;
-  width: 23%;
+  width: 100%;
+}
+
+button {
+  margin-top: 1em;
+  width: 100% !important;
 }
 
 /*# sourceMappingURL=filter.component.css.map */
