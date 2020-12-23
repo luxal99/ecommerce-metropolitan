@@ -43,7 +43,13 @@ export class FilterComponent implements OnInit {
 
   ngOnInit() {
     this.init();
-    this.get();
+    this.setProductFilterObservable();
+    setTimeout(() => {
+      this.getByCategory();
+      this.getByTitle();
+
+      document.getElementById('product-spinner').style.display = 'none';
+    }, 500);
   }
 
   filterProduct() {
@@ -98,52 +104,45 @@ export class FilterComponent implements OnInit {
     });
   }
 
-  get() {
+  setProductFilterObservable() {
+    this.productService.getAll().subscribe((listOfProducts) => {
+      const productFilterObservable: Array<ProductFilter> = listOfProducts.map(x => ({
+        id: x.id,
+        title: x.title,
+        idProductBrand: x.idProductBrand.title,
+        idProductCategory: x.idProductCategory.title,
+        listOfImages: x.listOfImages,
+        price: x.price,
+        bColor: 'hsl(' + Math.random() * 360 + ', 100%, 75%)'
+      }));
+
+      this.productFilterObservable = new Observable(observer => {
+        observer.next(productFilterObservable);
+      });
+    });
+  }
+
+  getByCategory() {
     this.router.queryParams.subscribe((params) => {
-      if (!params.title) {
-        this.searchForm.get(PRODUCT_CATEGORY_FORM_CONTROL).setValue(params.idProductCategory);
-        this.productService.getAll().subscribe((listOfProducts) => {
-          const dtoList: Array<ProductFilter> = listOfProducts.map(x => ({
-            id: x.id,
-            title: x.title,
-            idProductBrand: x.idProductBrand.title,
-            idProductCategory: x.idProductCategory.title,
-            listOfImages: x.listOfImages,
-            price: x.price,
-            bColor: 'hsl(' + Math.random() * 360 + ', 100%, 75%)'
-          }));
-
-          this.productFilterObservable = new Observable(observer => {
-            observer.next(dtoList);
-          });
-          dtoList.forEach(product => {
-            if (Object.values(params).every(x => Object.values(product).includes(x))) {
-              this.listOfFilteredProduct.push(product);
-            }
-          });
+      this.searchForm.get(PRODUCT_CATEGORY_FORM_CONTROL).setValue(params.idProductCategory);
+      this.productFilterObservable.subscribe((productFilterObservable) => {
+        productFilterObservable.forEach(product => {
+          if (Object.values(params).every(x => Object.values(product).includes(x))) {
+            this.listOfFilteredProduct.push(product);
+          }
         });
-      } else if (params.title) {
-        this.productService.getAll().subscribe((listOfProducts) => {
-          listOfProducts = listOfProducts.filter(product => product.title.toLowerCase().includes(params.title));
+      });
+    });
+  }
 
-          const dtoList: Array<ProductFilter> = listOfProducts.map(x => ({
-            id: x.id,
-            title: x.title,
-            idProductBrand: x.idProductBrand.title,
-            idProductCategory: x.idProductCategory.title,
-            listOfImages: x.listOfImages,
-            price: x.price,
-            bColor: 'hsl(' + Math.random() * 360 + ', 100%, 75%)'
-          }));
-
-          this.listOfFilteredProduct = dtoList;
-
-          this.productFilterObservable = new Observable(observer => {
-            observer.next(dtoList);
-          });
+  getByTitle() {
+    this.router.queryParams.subscribe((params) => {
+      if (params.title) {
+        this.productFilterObservable.subscribe((listOfProducts) => {
+          listOfProducts = listOfProducts.filter((product) => product.title.toLowerCase().includes(params.title));
+          this.listOfFilteredProduct = listOfProducts;
         });
       }
-
     });
   }
 }
