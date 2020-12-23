@@ -92,4 +92,11 @@ mat-form-field {
   width: 100% !important;
 }
 
+mat-icon {
+  font-size: 40px;
+  width: 40px;
+  margin-top: 0.2em;
+  height: 40px;
+}
+
 /*# sourceMappingURL=navbar.component.css.map */
