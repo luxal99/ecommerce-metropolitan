@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-sm product-col text-center" *ngFor="let product of listOfProducts">
     <img [src]="product.listOfImages[0].url" width="300px" height="240px">
-    <div class="col-body" [ngStyle]="{'background-color': product.bColor}" (click)="addToCart(product)">
+    <div class="col-body" [ngStyle]="{'background-color': product.bColor}" (click)="openProduct(product.id)">
       <h5>{{product.title}}</h5>
       <h6>{{product.price}}din</h6>
     </div>

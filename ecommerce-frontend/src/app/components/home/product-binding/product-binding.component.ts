@@ -11,8 +11,6 @@ import {CartDialogComponent} from '../../navbar/cart-dialog/cart-dialog.componen
   styleUrls: ['./product-binding.component.scss']
 })
 export class ProductBindingComponent implements OnInit {
-  @Output() total = 0;
-  cartList: Array<Product> = [];
   @Input() listOfProducts: Array<any>;
 
   constructor(private router: Router, private cartService: CartService) {
@@ -25,8 +23,5 @@ export class ProductBindingComponent implements OnInit {
     this.router.navigate([PRODUCT_ROUTE], {queryParams: {id}});
   }
 
-  addToCart(newProduct: Product) {
-    this.cartService.addToCart(newProduct);
-  }
 
 }

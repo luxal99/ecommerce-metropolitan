@@ -26,6 +26,7 @@ import {ProductOverviewComponent} from './components/home/product-overview/produ
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {ProductBindingComponent} from './components/home/product-binding/product-binding.component';
 import {CartDialogComponent} from './components/navbar/cart-dialog/cart-dialog.component';
+import { ClientComponent } from './components/client/client.component';
 
 // @ts-ignore
 @NgModule({
@@ -46,7 +47,8 @@ import {CartDialogComponent} from './components/navbar/cart-dialog/cart-dialog.c
     FilterComponent,
     ProductOverviewComponent,
     ProductBindingComponent,
-    CartDialogComponent
+    CartDialogComponent,
+    ClientComponent
   ],
   imports: [
     BrowserModule,

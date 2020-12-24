@@ -18,7 +18,7 @@ export class ProductOverviewComponent implements OnInit {
   firstImage: ProductImage;
 
   constructor(private route: ActivatedRoute, private productService: ProductService,
-              private cartService: CartService, private snackBar: MatSnackBar) {
+              public cartService: CartService, private snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
@@ -39,7 +39,6 @@ export class ProductOverviewComponent implements OnInit {
   }
 
   addToCart(newProduct: Product) {
-
-
+    this.cartService.addToCart(newProduct);
   }
 }
