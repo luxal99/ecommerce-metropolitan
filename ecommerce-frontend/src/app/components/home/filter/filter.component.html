@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-navbar [cartSize]="cartService.getCartSize()"  [total]="cartService.getTotal()"></app-navbar>
 <div class="home">
   <div>
     <form [formGroup]="searchForm">

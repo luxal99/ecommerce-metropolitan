@@ -14,6 +14,7 @@ import {
   PRODUCT_BRAND_FORM_CONTROL,
   PRODUCT_CATEGORY_FORM_CONTROL
 } from '../../../constant/const';
+import {CartService} from '../../../service/cart.service';
 
 @Component({
   selector: 'app-filter',
@@ -38,7 +39,7 @@ export class FilterComponent implements OnInit {
   constructor(private router: ActivatedRoute,
               private productService: ProductService,
               private productCategoryService: ProductCategoryService,
-              private productBrandService: ProductBrandService) {
+              private productBrandService: ProductBrandService, public cartService: CartService) {
   }
 
   ngOnInit() {

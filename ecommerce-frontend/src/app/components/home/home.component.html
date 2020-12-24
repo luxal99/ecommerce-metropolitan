@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-navbar [cartSize]="cartService.getCartSize()"  [total]="cartService.getTotal()"></app-navbar>
 <div class="home">
   <div class="row header-row ">
     <div class="col-sm-8 left-col">
@@ -26,7 +26,7 @@
 
   <div class="category-div">
     <h3>Products</h3>
-    <app-product-binding [listOfProducts]="listOfLatestProducts"></app-product-binding>
+    <app-product-binding  [listOfProducts]="listOfLatestProducts"></app-product-binding>
   </div>
   <div class="about-div">
     <div class="row">

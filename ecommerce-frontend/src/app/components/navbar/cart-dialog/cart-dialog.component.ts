@@ -18,7 +18,7 @@ export class CartDialogComponent implements OnInit {
     this.getCart();
   }
 
-  getCart() {
+   getCart() {
     this.cartService.getCart().subscribe((x) => {
       this.listOfProducts = x;
     });

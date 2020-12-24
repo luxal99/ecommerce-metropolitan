@@ -32,7 +32,27 @@ export class CartService {
       subscriber.next(this.productArray);
       subscriber.complete();
     });
+  }
 
+
+  getCartSize() {
+    let total = 0;
+    this.productArray.filter((product) => {
+      total += product.initialCartSize;
+    });
+
+    console.log(total);
+
+    return total;
+  }
+
+  getTotal() {
+    let total = 0;
+    this.productArray.filter((product) => {
+      total += product.price * product.initialCartSize;
+    });
+
+    return total;
   }
 
   getCart() {

@@ -20,13 +20,14 @@ export class HomeComponent implements OnInit {
 
   constructor(private productCategoryService: ProductCategoryService,
               private productService: ProductService,
-              private router: Router) {
+              private router: Router, public cartService: CartService) {
   }
 
   ngOnInit() {
     this.getAllCategories();
     this.getLatestFourProducts();
   }
+
 
   getAllCategories() {
     this.productCategoryService.getAll().subscribe((categories) => {

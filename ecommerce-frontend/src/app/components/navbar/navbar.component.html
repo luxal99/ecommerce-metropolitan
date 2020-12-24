@@ -18,8 +18,13 @@
         <div class="col-sm text-right" style="padding-top: .5em">
           <h4 style="font-weight: bold">Contact</h4>
         </div>
-        <div class="col-sm text-left">
-          <button mat-icon-button (click)="openCartDialog()"><mat-icon>shopping_cart</mat-icon></button></div>
+        <div class="col-sm text-left" style="display: inline-flex">
+          <button *ngIf="cartSize >0" matBadge="{{cartSize}}" matBadgePosition="after" matBadgeColor="accent"
+                  mat-icon-button (click)="openCartDialog()">
+            <mat-icon>shopping_cart</mat-icon>
+          </button>
+          <h5 *ngIf="total>0" style="margin: .5em 1em;font-weight: bold">{{total}}din</h5>
+        </div>
       </div>
     </div>
   </div>

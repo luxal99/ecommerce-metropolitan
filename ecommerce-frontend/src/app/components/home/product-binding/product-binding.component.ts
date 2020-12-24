@@ -1,8 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {PRODUCT_ROUTE} from '../../../constant/const';
 import {Router} from '@angular/router';
 import {Product} from '../../../models/Product';
 import {CartService} from '../../../service/cart.service';
+import {CartDialogComponent} from '../../navbar/cart-dialog/cart-dialog.component';
 
 @Component({
   selector: 'app-product-binding',
@@ -10,8 +11,7 @@ import {CartService} from '../../../service/cart.service';
   styleUrls: ['./product-binding.component.scss']
 })
 export class ProductBindingComponent implements OnInit {
-
-
+  @Output() total = 0;
   cartList: Array<Product> = [];
   @Input() listOfProducts: Array<any>;
 
