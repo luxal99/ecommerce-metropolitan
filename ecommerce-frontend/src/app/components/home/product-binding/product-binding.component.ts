@@ -11,6 +11,8 @@ import {CartService} from '../../../service/cart.service';
 })
 export class ProductBindingComponent implements OnInit {
 
+
+  cartList: Array<Product> = [];
   @Input() listOfProducts: Array<any>;
 
   constructor(private router: Router, private cartService: CartService) {
@@ -21,6 +23,10 @@ export class ProductBindingComponent implements OnInit {
 
   openProduct(id: any) {
     this.router.navigate([PRODUCT_ROUTE], {queryParams: {id}});
+  }
+
+  addToCart(newProduct: Product) {
+    this.cartService.addToCart(newProduct);
   }
 
 }

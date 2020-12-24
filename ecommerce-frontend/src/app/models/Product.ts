@@ -11,6 +11,7 @@ export class Product {
   idProductCategory: ProductCategory;
   idProductBrand: ProductBrand;
 
+  initialCartSize: number;
   listOfImages: ProductImage[];
   bColor: string;
 }

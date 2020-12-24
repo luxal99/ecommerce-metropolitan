@@ -112,6 +112,7 @@ export class FilterComponent implements OnInit {
         idProductBrand: x.idProductBrand.title,
         idProductCategory: x.idProductCategory.title,
         listOfImages: x.listOfImages,
+        initialCartSize: x.initialCartSize,
         price: x.price,
         bColor: 'hsl(' + Math.random() * 360 + ', 100%, 75%)'
       }));

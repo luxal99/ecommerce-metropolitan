@@ -12,7 +12,14 @@
     <div class="col-sm right-col">
       <h2>{{product.title}}</h2>
       <p [innerHTML]="product.description"></p>
-      <button mat-raised-button class="create-btn">Add to card</button>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Amount</mat-label>
+          <input  id="search" type="text" disabled [value]="product.cartAmount" matInput>
+
+        </mat-form-field>
+      </div>
+      <button mat-raised-button class="create-btn" (click)="addToCart(product)">Add to card</button>
     </div>
   </div>
 </div>

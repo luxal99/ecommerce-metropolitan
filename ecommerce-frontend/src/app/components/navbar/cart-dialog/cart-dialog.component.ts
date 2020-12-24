@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {CartService} from '../../../service/cart.service';
+import {Product} from '../../../models/Product';
 
 @Component({
   selector: 'app-cart-dialog',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartDialogComponent implements OnInit {
 
-  constructor() { }
+  listOfProducts: Array<Product> = [];
 
-  ngOnInit() {
+  constructor(private cartService: CartService) {
   }
 
+  ngOnInit() {
+    this.getCart();
+  }
+
+  getCart() {
+    this.cartService.getCart().subscribe((x) => {
+      this.listOfProducts = x;
+    });
+  }
+
+  remove(product: Product) {
+    this.cartService.deleteFromCart(product);
+    this.getCart();
+  }
 }

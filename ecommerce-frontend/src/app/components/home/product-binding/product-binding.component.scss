@@ -1,4 +1,4 @@
-
+@import "../../../../assets/scss/variables";
 .product-col {
   border: 1px solid #eee !important;
   border-radius: 20px;
@@ -18,9 +18,19 @@
     h6 {
       font-weight: bold;
     }
+
   }
 }
 
 .h3-bold {
   font-weight: bold;
 }
+.col-body:hover {
+  -webkit-box-shadow: 10px 10px 47px -31px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 47px -31px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 47px -31px rgba(0,0,0,0.75);
+  background-color: $darken-violet !important;
+  color: $blue-font-color;
+  transition: .6s;
+}
+

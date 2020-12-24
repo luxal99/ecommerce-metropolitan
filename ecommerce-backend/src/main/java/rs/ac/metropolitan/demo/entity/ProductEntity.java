@@ -22,6 +22,9 @@ public class ProductEntity extends BaseEntity implements Serializable {
     @Column(name = "amount")
     private Integer amount;
 
+    @Column(name = "initial_cart_size")
+    private Integer initialCartSize;
+
     @Column(name = "price")
     private Double price;
 
@@ -58,6 +61,14 @@ public class ProductEntity extends BaseEntity implements Serializable {
 
     public Integer getAmount() {
         return amount;
+    }
+
+    public Integer getInitialCartSize() {
+        return initialCartSize;
+    }
+
+    public void setInitialCartSize(Integer initialCartSize) {
+        this.initialCartSize = initialCartSize;
     }
 
     public void setAmount(Integer amount) {

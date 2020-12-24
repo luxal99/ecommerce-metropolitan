@@ -7,15 +7,32 @@ import {Product} from '../models/Product';
 })
 export class CartService {
 
-  protected cart: Observable<Set<Product>>;
+  protected cart: Observable<Array<Product>>;
+  protected productArray: Array<Product> = [];
 
   constructor() {
   }
 
-  addToCart(product: Set<Product>): void {
-    this.cart = new Observable(observer => {
-      observer.next(product);
+
+  addToCart(product: Product): void {
+    if (this.productArray.find((element) => element.id === product.id)) {
+      this.productArray.find((element) => element.id === product.id).initialCartSize++;
+    } else {
+      this.productArray.push(product);
+    }
+    this.cart = new Observable((subscriber) => {
+      subscriber.next(this.productArray);
+      subscriber.complete();
     });
+  }
+
+  deleteFromCart(product: Product) {
+    this.productArray = this.productArray.filter((el) => el.id !== product.id);
+    this.cart = new Observable((subscriber) => {
+      subscriber.next(this.productArray);
+      subscriber.complete();
+    });
+
   }
 
   getCart() {
