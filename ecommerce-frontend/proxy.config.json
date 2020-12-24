@@ -8,7 +8,8 @@
       "/productCategory",
       "/productBrand",
       "/product",
-      "/productImage"
+      "/productImage",
+      "/order"
     ],
     "target": "http://localhost:8080",
     "secure": false

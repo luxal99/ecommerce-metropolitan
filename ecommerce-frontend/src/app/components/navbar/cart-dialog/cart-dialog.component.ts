@@ -3,6 +3,9 @@ import {CartService} from '../../../service/cart.service';
 import {Product} from '../../../models/Product';
 import {Order} from '../../../models/Order';
 import {OrderService} from '../../../service/order.service';
+import {MatSnackBar} from '@angular/material';
+import {OpenSnackbar} from '../../../util/snackbar';
+import {ERR_MESSAGE, SUCCESS_MESSAGE} from '../../../constant/const';
 
 @Component({
   selector: 'app-cart-dialog',
@@ -13,7 +16,7 @@ export class CartDialogComponent implements OnInit {
 
   listOfProducts: Array<Product> = [];
 
-  constructor(private cartService: CartService, private orderService: OrderService) {
+  constructor(private cartService: CartService, private orderService: OrderService, private snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
@@ -44,6 +47,13 @@ export class CartDialogComponent implements OnInit {
       order.total += element.price;
     });
 
+    this.orderService.create(order).subscribe((resp) => {
+      console.log(resp);
+      OpenSnackbar.openSnackBar(this.snackBar, SUCCESS_MESSAGE);
+    }, error => {
+      console.log(error);
+      OpenSnackbar.openSnackBar(this.snackBar, ERR_MESSAGE);
+    });
 
   }
 }
