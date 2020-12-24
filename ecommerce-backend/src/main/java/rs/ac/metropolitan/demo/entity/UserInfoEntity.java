@@ -1,5 +1,8 @@
 package rs.ac.metropolitan.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonManagedReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -12,7 +15,7 @@ public class UserInfoEntity extends BaseEntity implements Serializable {
     private String email;
     private String telephone;
 
-    @OneToMany(mappedBy = "idUserInfo")
+    @OneToMany(mappedBy = "idUserInfo",cascade = CascadeType.ALL)
     private List<OrderEntity> ordersById = new ArrayList<>();
 
     @OneToOne(mappedBy = "idUserInfo")
@@ -45,6 +48,7 @@ public class UserInfoEntity extends BaseEntity implements Serializable {
     public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
+
 
     public List<OrderEntity> getOrdersById() {
         return ordersById;

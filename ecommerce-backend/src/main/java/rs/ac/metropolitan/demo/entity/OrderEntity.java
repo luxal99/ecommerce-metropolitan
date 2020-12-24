@@ -1,15 +1,14 @@
 package rs.ac.metropolitan.demo.entity;
 
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.Objects;
-
+import org.codehaus.jackson.annotate.JsonBackReference;
 @Entity
-@Table(name = "order", schema = "ecommerce")
+@Table(name = "orders", schema = "ecommerce")
 public class OrderEntity extends BaseEntity implements Serializable {
     private Date date;
     private Double total;
@@ -33,6 +32,7 @@ public class OrderEntity extends BaseEntity implements Serializable {
     public void setTotal(Double total) {
         this.total = total;
     }
+
 
     public UserInfoEntity getIdUserInfo() {
         return idUserInfo;

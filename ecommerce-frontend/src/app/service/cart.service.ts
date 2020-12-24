@@ -40,9 +40,6 @@ export class CartService {
     this.productArray.filter((product) => {
       total += product.initialCartSize;
     });
-
-    console.log(total);
-
     return total;
   }
 
@@ -51,7 +48,6 @@ export class CartService {
     this.productArray.filter((product) => {
       total += product.price * product.initialCartSize;
     });
-
     return total;
   }
 
