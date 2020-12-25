@@ -1,5 +1,7 @@
 package rs.ac.metropolitan.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -47,6 +49,7 @@ public class UserInfoEntity extends BaseEntity implements Serializable {
     }
 
 
+    @JsonIgnore
     public List<OrderEntity> getOrdersById() {
         return ordersById;
     }
@@ -55,6 +58,7 @@ public class UserInfoEntity extends BaseEntity implements Serializable {
         this.ordersById = ordersById;
     }
 
+    @JsonIgnore
     public UserEntity getIdUser() {
         return idUser;
     }

@@ -1,15 +1,15 @@
 package rs.ac.metropolitan.demo.entity;
 
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
-import org.codehaus.jackson.annotate.JsonBackReference;
+
 @Entity
 @Table(name = "orders", schema = "ecommerce")
 public class OrderEntity extends BaseEntity implements Serializable {
+
     private Date date;
     private Double total;
     @JoinColumn(name = "id_user_info", referencedColumnName = "id")

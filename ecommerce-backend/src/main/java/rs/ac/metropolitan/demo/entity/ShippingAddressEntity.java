@@ -1,5 +1,7 @@
 package rs.ac.metropolitan.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -39,6 +41,7 @@ public class ShippingAddressEntity extends BaseEntity implements Serializable {
         this.postcode = postcode;
     }
 
+    @JsonIgnore
     public List<UserInfoEntity> getListOfUserInfo() {
         return listOfUserInfo;
     }
