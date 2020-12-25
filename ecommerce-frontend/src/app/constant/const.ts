@@ -15,6 +15,7 @@ export const ADMIN_ROUTE = 'admin';
 export const BASIC_ROUTE = '';
 export const REGISTRATION_ROUTE = 'registration';
 export const LOGIN_ROUTE = 'authenticate';
+export const CLIENT_ROUTE = 'client';
 
 export const FULL_NAME_FORM_CONTROL = 'fullName';
 export const EMAIL_FORM_CONTROL = 'email';
