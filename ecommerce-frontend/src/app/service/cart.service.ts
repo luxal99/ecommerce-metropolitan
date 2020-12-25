@@ -54,4 +54,12 @@ export class CartService {
   getCart() {
     return this.cart;
   }
+
+  clearCart() {
+    this.productArray = [];
+    this.cart = new Observable((subscriber) => {
+      subscriber.next(this.productArray);
+      subscriber.complete();
+    });
+  }
 }

@@ -21,5 +21,9 @@
       <button mat-icon-button style="color: #fff" (click)="remove(product)"><mat-icon>close</mat-icon></button>
     </div>
   </div>
-  <button mat-raised-button class="create-btn" (click)="send()">Send</button>
+  <mat-divider></mat-divider>
+  <div class="text-right" style="margin: 1em">
+    <h3>Total:<span> {{cartService.getTotal()}}din</span></h3>
+  </div>
+  <button mat-raised-button class="create-order-btn" (click)="send()">Send</button>
 </div>

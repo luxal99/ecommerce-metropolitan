@@ -17,3 +17,18 @@ h3 {
 h5{
   color: #999;
 }
+
+span {
+  color: $blue-font-color;
+  font-weight: bold;
+}
+
+mat-divider {
+  border-top-color: $blue-font-color ;
+}
+.create-order-btn {
+  @extend .create-btn;
+  background-color: $blue-font-color;
+  color: $darken-violet;
+  width: 30% !important;
+}

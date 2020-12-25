@@ -1,4 +1,4 @@
-.create-btn {
+.create-btn, .create-order-btn {
   width: 40%;
   background-color: #212132;
   color: #56CCF2;
@@ -102,6 +102,21 @@ h3 {
 
 h5 {
   color: #999;
+}
+
+span {
+  color: #56CCF2;
+  font-weight: bold;
+}
+
+mat-divider {
+  border-top-color: #56CCF2;
+}
+
+.create-order-btn {
+  background-color: #56CCF2;
+  color: #1a1a26;
+  width: 30% !important;
 }
 
 /*# sourceMappingURL=cart-dialog.component.css.map */

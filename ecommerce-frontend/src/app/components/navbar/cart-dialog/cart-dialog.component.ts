@@ -47,11 +47,11 @@ export class CartDialogComponent implements OnInit {
       order.total += element.price;
     });
 
-    this.orderService.create(order).subscribe((resp) => {
-      console.log(resp);
+    this.orderService.create(order).subscribe(() => {
       OpenSnackbar.openSnackBar(this.snackBar, SUCCESS_MESSAGE);
-    }, error => {
-      console.log(error);
+      this.cartService.clearCart();
+      this.listOfProducts = [];
+    }, () => {
       OpenSnackbar.openSnackBar(this.snackBar, ERR_MESSAGE);
     });
 
