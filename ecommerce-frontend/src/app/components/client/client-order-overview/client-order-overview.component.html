@@ -1,1 +1,20 @@
-<p>client-order-overview works!</p>
+<div class="col-sm" style="padding: 1em">
+  <app-heading header="Porudžbine"></app-heading>
+  <div class="row" *ngFor="let order of listOfOrders" style="margin-top: 2em">
+    <div class="col-sm">
+      <h5>Datum</h5>
+      <h3>{{order.date}}</h3>
+    </div>
+    <div class="col-sm">
+      <h5>Total</h5>
+      <h3>{{order.total}}</h3>
+    </div>
+    <div class="col-sm">
+      <h5>Broj proivoda</h5>
+      <h3>{{order.listOfProducts.length}}</h3>
+    </div>
+    <div class="col-sm button-inline">
+      <button mat-raised-button class="edit-btn " (click)="openOrderDetail(order)">Show</button>
+    </div>
+  </div>
+</div>
