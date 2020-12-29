@@ -1,1 +1,21 @@
-<p>client works!</p>
+<div class="admin">
+  <div class="row">
+    <div class="col-sm-2 menu">
+      <img src="../../../assets/img/Coles_logo.svg.png" class="img-fluid">
+      <a (click)="loadGlobalOverview()">
+        <h4 (click)="changeColor($event)" id="overview-btn"><i class="fa fa-eye"></i> Pregled </h4>
+      </a>
+      <a (click)="loadOrderOverview()">
+        <h4 (click)="changeColor($event)" class="link"><i class="fa fa-users" aria-disabled="true"></i>Porudžine</h4>
+      </a>
+      <a (click)="loadShippingAddressSettings()">
+        <h4 (click)="changeColor($event)" class="link"><i class="fa fa-users" aria-disabled="true"></i>Adresa za slanje
+        </h4>
+      </a>
+    </div>
+    <div class="col-sm-10">
+      <div #target>
+      </div>
+    </div>
+  </div>
+</div>

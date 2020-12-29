@@ -18,4 +18,11 @@ export class OrderService extends GenericService<Order> {
     });
   }
 
+  findOrderByUsername(): Observable<Array<Order>> {
+    return this.http.get<Order[]>(ORDER_ROUTE + '/byUser', {
+      responseType: 'json',
+      headers: {Authorization: localStorage.getItem(TOKEN_NAME)}
+    });
+  }
+
 }

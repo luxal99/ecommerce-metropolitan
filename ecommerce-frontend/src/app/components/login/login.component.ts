@@ -5,8 +5,8 @@ import {User} from '../../models/User';
 import {
   ADMIN_ROLE_NAME,
   ADMIN_ROUTE,
-  CLIENT_ROLE_NAME,
-  PASSWORD_FORM_CONTROL,
+  CLIENT_ROLE_NAME, CLIENT_ROUTE,
+  PASSWORD_FORM_CONTROL, ROLE_LOCAL_STORAGE,
   TOKEN_NAME,
   USERNAME_FORM_CONTROL
 } from '../../constant/const';
@@ -35,10 +35,11 @@ export class LoginComponent implements OnInit {
       .subscribe((resp) => {
         if (resp.accessToken) {
           localStorage.setItem(TOKEN_NAME, resp.accessToken);
+          localStorage.setItem(ROLE_LOCAL_STORAGE, resp.roleName);
           if (resp.roleName === ADMIN_ROLE_NAME) {
             this.router.navigate([ADMIN_ROUTE]);
           } else if (resp.roleName === CLIENT_ROLE_NAME) {
-            this.router.navigate([ADMIN_ROUTE]);
+            this.router.navigate([CLIENT_ROUTE]);
           }
         }
 

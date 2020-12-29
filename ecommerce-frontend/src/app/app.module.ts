@@ -26,7 +26,10 @@ import {ProductOverviewComponent} from './components/home/product-overview/produ
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {ProductBindingComponent} from './components/home/product-binding/product-binding.component';
 import {CartDialogComponent} from './components/navbar/cart-dialog/cart-dialog.component';
-import { ClientComponent } from './components/client/client.component';
+import {ClientComponent} from './components/client/client.component';
+import {ClientOrderOverviewComponent} from './components/client/client-order-overview/client-order-overview.component';
+import {ClientGlobalOverviewComponent} from './components/client/client-global-overview/client-global-overview.component';
+import {ShippingAddressComponent} from './components/client/shipping-address/shipping-address.component';
 
 // @ts-ignore
 @NgModule({
@@ -48,7 +51,10 @@ import { ClientComponent } from './components/client/client.component';
     ProductOverviewComponent,
     ProductBindingComponent,
     CartDialogComponent,
-    ClientComponent
+    ClientComponent,
+    ClientOrderOverviewComponent,
+    ClientGlobalOverviewComponent,
+    ShippingAddressComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +77,8 @@ import { ClientComponent } from './components/client/client.component';
     BrowserAnimationsModule
   ],
   entryComponents: [ProductComponent, AddProductBrandDialogComponent,
-    AddProductCategoryDialogComponent, GlobalComponent, AddProductDialogComponent, CartDialogComponent],
+    AddProductCategoryDialogComponent, GlobalComponent, AddProductDialogComponent, CartDialogComponent, ShippingAddressComponent,
+    ClientGlobalOverviewComponent, ClientOrderOverviewComponent],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })

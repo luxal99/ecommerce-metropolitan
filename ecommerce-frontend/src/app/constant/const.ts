@@ -36,3 +36,4 @@ export const ADMIN_ROLE_NAME = 'ROLE_ADMIN';
 
 export const SUCCESS_MESSAGE = 'Success';
 export const ERR_MESSAGE = 'Error';
+export const ROLE_LOCAL_STORAGE = 'role';

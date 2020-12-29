@@ -1,6 +1,14 @@
 import {Component, Input, OnInit, Output} from '@angular/core';
-import {Router} from '@angular/router';
-import {FILTER_ROUTE, SEARCH_FORM_CONTROL} from '../../constant/const';
+import {Route, Router} from '@angular/router';
+import {
+  ADMIN_ROLE_NAME, ADMIN_ROUTE,
+  CLIENT_ROLE_NAME,
+  CLIENT_ROUTE,
+  FILTER_ROUTE,
+  ROLE_LOCAL_STORAGE,
+  SEARCH_FORM_CONTROL,
+  TOKEN_NAME
+} from '../../constant/const';
 import {FormControl, FormGroup} from '@angular/forms';
 import {MatDialog} from '@angular/material';
 import {DialogUtil} from '../../util/dialog-util';
@@ -22,7 +30,8 @@ export class NavbarComponent implements OnInit {
     search: new FormControl('')
   });
 
-  constructor(private router: Router, private dialog: MatDialog, private cartService: CartService) {
+  constructor(private router: Router, private dialog: MatDialog,
+              private cartService: CartService) {
   }
 
   ngOnInit() {
@@ -46,4 +55,13 @@ export class NavbarComponent implements OnInit {
     });
   }
 
+  navigateToProfile() {
+    const roleName = localStorage.getItem(ROLE_LOCAL_STORAGE);
+
+    if (roleName === CLIENT_ROLE_NAME) {
+      this.router.navigate([CLIENT_ROUTE]);
+    } else if (roleName === ADMIN_ROLE_NAME) {
+      this.router.navigate([ADMIN_ROUTE]);
+    }
+  }
 }
