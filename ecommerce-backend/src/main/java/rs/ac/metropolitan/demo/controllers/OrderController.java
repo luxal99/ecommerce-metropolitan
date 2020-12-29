@@ -6,12 +6,18 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
 import javax.servlet.http.HttpServletRequest;
 
 import com.auth0.jwt.JWT;
 import rs.ac.metropolitan.demo.constants.Const;
 import rs.ac.metropolitan.demo.entity.OrderEntity;
+import rs.ac.metropolitan.demo.entity.ProductEntity;
 import rs.ac.metropolitan.demo.repository.OrderRepository;
+import rs.ac.metropolitan.demo.repository.ProductRepository;
 import rs.ac.metropolitan.demo.repository.UserRepository;
 
 import java.util.ArrayList;
@@ -29,6 +35,9 @@ public class OrderController extends GenericController<OrderEntity> {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private ProductRepository productRepository;
+
 
     @PostMapping("/create")
     public ResponseEntity<String> createOrder(HttpServletRequest request, @RequestBody OrderEntity orderEntity) {
@@ -39,8 +48,16 @@ public class OrderController extends GenericController<OrderEntity> {
                     .verify(token.replace(TOKEN_PREFIX, ""))
                     .getSubject();
             orderEntity.setIdUserInfo(userRepository.findUserEntityByUsername(username).getIdUserInfo());
+
+            for (ProductEntity productEntity : orderEntity.getListOfProducts()) {
+                ProductEntity product = productRepository.findById(productEntity.getId()).get();
+                product.setAmount(product.getAmount() - 1);
+                productRepository.save(product);
+            }
             orderRepository.save(orderEntity);
-            return ResponseEntity.ok("HttpStatus.OK.toString()");
+
+
+            return ResponseEntity.ok(HttpStatus.OK.toString());
         } catch (Exception err) {
             return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(err.getMessage());
         }
