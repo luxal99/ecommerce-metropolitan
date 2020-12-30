@@ -21,7 +21,7 @@ public class UserInfoEntity extends BaseEntity implements Serializable {
     private UserEntity idUser;
 
     @JoinColumn(name = "id_shipping_address", referencedColumnName = "id",nullable = false)
-    @ManyToOne(optional = false,fetch = FetchType.LAZY,cascade = CascadeType.PERSIST)
+    @OneToOne(optional = false,fetch = FetchType.LAZY,cascade = CascadeType.PERSIST)
     private ShippingAddressEntity idShippingAddress;
 
     public String getFullName() {

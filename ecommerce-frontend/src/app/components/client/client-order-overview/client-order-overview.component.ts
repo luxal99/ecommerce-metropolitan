@@ -16,6 +16,7 @@ import {DialogOptions} from '../../../util/dialog-options';
 export class ClientOrderOverviewComponent implements OnInit {
 
   listOfOrders: Array<Order> = [];
+  total = 0;
 
   constructor(private orderService: OrderService, private router: Router, private dialog: MatDialog) {
   }
@@ -27,6 +28,10 @@ export class ClientOrderOverviewComponent implements OnInit {
   getOrders() {
     this.orderService.findOrderByUsername().subscribe((listOfOrders) => {
       this.listOfOrders = listOfOrders;
+
+      for (const order of listOfOrders) {
+        this.total += order.total;
+      }
     }, () => {
       this.router.navigate([LOGIN_ROUTE]);
     });

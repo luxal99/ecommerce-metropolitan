@@ -24,7 +24,7 @@ public class GenericController<T extends BaseEntity> {
         return repository.save(entity);
     }
 
-    @RequestMapping(value = "{id}", method = RequestMethod.PUT)
+    @RequestMapping( method = RequestMethod.PUT)
     public T update(@RequestBody T entity) {
         return repository.save(entity);
     }

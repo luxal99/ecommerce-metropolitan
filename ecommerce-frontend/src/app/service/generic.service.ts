@@ -33,9 +33,9 @@ export class GenericService<T> {
     });
   }
 
-  update(entity: T) {
-    return this.http.put(`${this.route}`, entity, {
-      responseType: 'text',
+  update(entity: T): Observable<T> {
+    return this.http.put<T>(`${this.route}`, entity, {
+      responseType: 'json',
       headers: {Authorization: TOKEN_PREFIX + localStorage.getItem(TOKEN_NAME)}
     });
   }

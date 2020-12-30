@@ -11,6 +11,7 @@ export class ClientOrderProductPreviewComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public order: Order) {
   }
+
   ngOnInit() {
   }
 

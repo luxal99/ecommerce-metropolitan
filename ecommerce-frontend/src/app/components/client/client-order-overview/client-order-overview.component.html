@@ -1,5 +1,12 @@
 <div class="col-sm" style="padding: 1em">
-  <app-heading header="Porudžbine"></app-heading>
+  <div class="row">
+    <div class="col-sm">
+      <app-heading header="Porudžbine"></app-heading>
+    </div>
+    <div class="col-sm">
+      <h3>Ukupno: {{total}}</h3>
+    </div>
+  </div>
   <div class="row" *ngFor="let order of listOfOrders" style="margin-top: 2em">
     <div class="col-sm">
       <h5>Datum</h5>

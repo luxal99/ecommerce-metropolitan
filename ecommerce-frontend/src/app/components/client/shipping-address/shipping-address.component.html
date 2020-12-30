@@ -1,1 +1,30 @@
-<p>shipping-address works!</p>
+<div class="">
+  <app-heading header="Shipping address"></app-heading>
+  <form [formGroup]="shippingAddressForm">
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>City</mat-label>
+        <input formControlName="city" matInput>
+        <mat-icon matSuffix>text_rotation_angledown</mat-icon>
+
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Address</mat-label>
+        <input formControlName="address" matInput>
+        <mat-icon matSuffix>email</mat-icon>
+
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Postcode</mat-label>
+        <input formControlName="postcode" matInput>
+        <mat-icon matSuffix>phone</mat-icon>
+
+      </mat-form-field>
+    </div>
+  </form>
+  <button (click)="update()" mat-raised-button class="create-btn">Update</button>
+</div>

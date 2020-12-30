@@ -33,6 +33,9 @@ export const PRODUCT_CATEGORY_FORM_CONTROL = 'idProductCategory';
 export const SEARCH_FORM_CONTROL = 'search';
 export const CLIENT_ROLE_NAME = 'ROLE_CLIENT';
 export const ADMIN_ROLE_NAME = 'ROLE_ADMIN';
+export const CITY_FORM_CONTROL = 'city';
+export const ADDRESS_FORM_CONTROL = 'address';
+export const POSTCODE_FORM_CONTROL = 'postcode';
 
 export const SUCCESS_MESSAGE = 'Success';
 export const ERR_MESSAGE = 'Error';

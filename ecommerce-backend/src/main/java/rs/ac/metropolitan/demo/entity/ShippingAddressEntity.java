@@ -14,8 +14,9 @@ public class ShippingAddressEntity extends BaseEntity implements Serializable {
     private String city;
     private String address;
     private Integer postcode;
-    @OneToMany(mappedBy = "idShippingAddress")
-    private final List<UserInfoEntity> listOfUserInfo = new ArrayList<>();
+
+    @OneToOne(mappedBy = "idShippingAddress")
+    private UserInfoEntity userInfoEntity;
 
     public String getCity() {
         return city;
@@ -42,7 +43,11 @@ public class ShippingAddressEntity extends BaseEntity implements Serializable {
     }
 
     @JsonIgnore
-    public List<UserInfoEntity> getListOfUserInfo() {
-        return listOfUserInfo;
+    public UserInfoEntity getUserInfoEntity() {
+        return userInfoEntity;
+    }
+
+    public void setUserInfoEntity(UserInfoEntity userInfoEntity) {
+        this.userInfoEntity = userInfoEntity;
     }
 }
