@@ -2,6 +2,7 @@ import {AfterViewInit, Component, ComponentFactoryResolver, OnInit, ViewChild, V
 import {LazyLoadComponentsUtil} from '../../util/lazy-load-components';
 import {ProductComponent} from './product/product.component';
 import {GlobalComponent} from './global/global.component';
+import {AdminOrderOverviewComponent} from './admin-order-overview/admin-order-overview.component';
 
 @Component({
   selector: 'app-admin',
@@ -44,5 +45,9 @@ export class AdminComponent implements OnInit, AfterViewInit {
 
   async loadGlobalOverview() {
     LazyLoadComponentsUtil.loadComponent(GlobalComponent, this.entry, this.cvRef, this.resolver);
+  }
+
+  async loadOrderOverview() {
+    LazyLoadComponentsUtil.loadComponent(AdminOrderOverviewComponent, this.entry, this.cvRef, this.resolver);
   }
 }

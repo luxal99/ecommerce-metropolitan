@@ -4,6 +4,7 @@ import {ShippingAddress} from '../../../models/ShippingAddress';
 import {Router} from '@angular/router';
 import {ADDRESS_FORM_CONTROL, CITY_FORM_CONTROL, LOGIN_ROUTE, POSTCODE_FORM_CONTROL} from '../../../constant/const';
 import {FormControl, FormGroup} from '@angular/forms';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-shipping-address',
@@ -12,6 +13,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 })
 export class ShippingAddressComponent implements OnInit {
 
+  shippingAddress: Observable<ShippingAddress>;
   shippingAddressForm = new FormGroup({
     city: new FormControl(),
     address: new FormControl(),
@@ -28,6 +30,9 @@ export class ShippingAddressComponent implements OnInit {
   findShippingAddress() {
     this.shippingAddressService.findByUsername().subscribe((resp) => {
       this.setValue(resp);
+      this.shippingAddress = new Observable(subscriber => {
+        subscriber.next(resp);
+      });
     }, () => {
       this.router.navigate([LOGIN_ROUTE]);
     });
@@ -40,7 +45,12 @@ export class ShippingAddressComponent implements OnInit {
   }
 
   update() {
-    this.shippingAddressService.update(this.shippingAddressForm.getRawValue()).subscribe((resp) => {
+
+    const shippingAddress: ShippingAddress = this.shippingAddressForm.getRawValue();
+    this.shippingAddress.subscribe((resp) => {
+      shippingAddress.id = resp.id;
+    });
+    this.shippingAddressService.update(shippingAddress).subscribe((resp) => {
       this.setValue(resp);
     });
   }

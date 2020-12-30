@@ -31,6 +31,7 @@ import {ClientOrderOverviewComponent} from './components/client/client-order-ove
 import {ClientGlobalOverviewComponent} from './components/client/client-global-overview/client-global-overview.component';
 import {ShippingAddressComponent} from './components/client/shipping-address/shipping-address.component';
 import {ClientOrderProductPreviewComponent} from './components/client/client-order-overview/client-order-product-preview/client-order-product-preview.component';
+import {AdminOrderOverviewComponent} from './components/admin/admin-order-overview/admin-order-overview.component';
 
 // @ts-ignore
 @NgModule({
@@ -56,7 +57,8 @@ import {ClientOrderProductPreviewComponent} from './components/client/client-ord
     ClientOrderOverviewComponent,
     ClientGlobalOverviewComponent,
     ShippingAddressComponent,
-    ClientOrderProductPreviewComponent
+    ClientOrderProductPreviewComponent,
+    AdminOrderOverviewComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +82,7 @@ import {ClientOrderProductPreviewComponent} from './components/client/client-ord
   ],
   entryComponents: [ProductComponent, AddProductBrandDialogComponent,
     AddProductCategoryDialogComponent, GlobalComponent, AddProductDialogComponent, CartDialogComponent, ShippingAddressComponent,
-    ClientGlobalOverviewComponent, ClientOrderOverviewComponent, ClientOrderProductPreviewComponent],
+    ClientGlobalOverviewComponent, ClientOrderOverviewComponent, AdminOrderOverviewComponent, ClientOrderProductPreviewComponent],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
