@@ -7,6 +7,7 @@ export class Order {
   total: number;
   listOfProducts: Array<Product> = [];
   idUserInfo: UserInfo;
+  orderStatus: string;
 
   constructor(date?: Date, total?: number, listOfProducts?: Product[]) {
     this.date = date;

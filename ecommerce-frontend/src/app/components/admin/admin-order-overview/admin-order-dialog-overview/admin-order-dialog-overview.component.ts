@@ -14,7 +14,7 @@ export class AdminOrderDialogOverviewComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.order);
   }
+
 
 }

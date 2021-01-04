@@ -12,10 +12,18 @@ public class OrderEntity extends BaseEntity implements Serializable {
 
     private Date date;
     private Double total;
+    private String orderStatus;
     @JoinColumn(name = "id_user_info", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private UserInfoEntity idUserInfo;
 
+    public String getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(String orderStatus) {
+        this.orderStatus = orderStatus;
+    }
 
     public Date getDate() {
         return date;
