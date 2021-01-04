@@ -202,6 +202,7 @@ INSERT INTO `user` VALUES (1,'admin','$2a$10$DZU0pMbWAdM2F4js0wLAhuxMO4XnnaQPFeX
 ## Frontend
 
 * Open folder **ecommerce-frontend**
+* In console type **npm install**
 * In console you can type **npm start**
 
 After that you can open browser and go to address **http://localhost:4200/** .
