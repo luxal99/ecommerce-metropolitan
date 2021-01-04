@@ -1,0 +1,25 @@
+<app-navbar [cartSize]="cartService.getCartSize()"  [total]="cartService.getTotal()"></app-navbar>
+<div class="home">
+  <div class="row">
+    <div class="col-sm">
+      <img [src]="firstImage.url" height="400px" width="100%" style="padding: 2em 5em">
+      <div class="row">
+        <div class="col-sm-3" *ngFor="let image of product.listOfImages">
+          <img [src]="image.url" class="img-fluid small-img" (click)="changePicture(image)">
+        </div>
+      </div>
+    </div>
+    <div class="col-sm right-col">
+      <h2>{{product.title}}</h2>
+      <p [innerHTML]="product.description"></p>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Amount</mat-label>
+          <input id="search" type="text" disabled [value]="product.initialCartSize" matInput>
+
+        </mat-form-field>
+      </div>
+      <button mat-raised-button class="create-btn" (click)="addToCart(product)">Add to card</button>
+    </div>
+  </div>
+</div>

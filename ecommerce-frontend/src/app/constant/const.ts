@@ -1,0 +1,44 @@
+export const PRODUCT_CATEGORY_ROUTE = '/productCategory';
+export const PRODUCT_BRAND_ROUTE = '/productBrand';
+export const PRODUCT_ROUTE = '/product';
+export const ROLE_ROUTE = '/role';
+export const PRODUCT_IMAGE_ROUTE = '/productImage';
+export const SHIPPING_ADDRESS_ROUTE = '/shippingAddress';
+export const ORDER_ROUTE = '/order';
+export const USER_INFO_ROUTE = '/userInfo';
+export const USER_ROUTE = '/user';
+export const FILTER_ROUTE = 'filter';
+export const TOKEN_NAME = 'Authorization';
+export const TOKEN_PREFIX = 'Bearer ';
+export const ADMIN_ROUTE = 'admin';
+
+export const BASIC_ROUTE = '';
+export const REGISTRATION_ROUTE = 'registration';
+export const LOGIN_ROUTE = 'authenticate';
+export const CLIENT_ROUTE = 'client';
+
+export const FULL_NAME_FORM_CONTROL = 'fullName';
+export const EMAIL_FORM_CONTROL = 'email';
+export const TELEPHONE_FORM_CONTROL = 'telephone';
+export const USERNAME_FORM_CONTROL = 'username';
+export const PASSWORD_FORM_CONTROL = 'password';
+export const PASSWORD_CONFIRM_FORM_CONTROL = 'passwordConfirm';
+export const TITLE_FORM_CONTROL = 'title';
+export const AMOUNT_FORM_CONTROL = 'amount';
+export const PRICE_FORM_CONTROL = 'price';
+export const PRICE_FROM_FORM_CONTROL = 'priceFrom';
+export const PRICE_TO_FORM_CONTROL = 'priceTo';
+export const PRODUCT_BRAND_FORM_CONTROL = 'idProductBrand';
+export const PRODUCT_CATEGORY_FORM_CONTROL = 'idProductCategory';
+export const SEARCH_FORM_CONTROL = 'search';
+export const CLIENT_ROLE_NAME = 'ROLE_CLIENT';
+export const ADMIN_ROLE_NAME = 'ROLE_ADMIN';
+export const CITY_FORM_CONTROL = 'city';
+export const ADDRESS_FORM_CONTROL = 'address';
+export const POSTCODE_FORM_CONTROL = 'postcode';
+export const ORDER_STATUS_FORM_CONTROL = 'orderStatus';
+
+export const SUCCESS_MESSAGE = 'Success';
+export const ERR_MESSAGE = 'Error';
+export const ROLE_LOCAL_STORAGE = 'role';
+export const ORDER_STATUS_ARR = ['NA CEKANJU', 'POSLATO', 'ISPORUCENO'];

@@ -1,0 +1,33 @@
+<div class="navigation text-center">
+  <div class="row">
+    <div class="col-sm-3" [routerLink]="['/']" style="cursor: pointer">
+      <img class="img-fluid" src="../../../assets/img/Coles_logo.svg.png" width="150px">
+    </div>
+    <div class="col-sm-6">
+      <form [formGroup]="searchForm">
+        <mat-form-field appearance="fill">
+          <mat-label>Amount</mat-label>
+          <input formControlName="search" id="search" type="text" matInput>
+          <mat-icon matSuffix>search</mat-icon>
+
+        </mat-form-field>
+      </form>
+    </div>
+    <div class="col-sm-3">
+      <div class="row" style="padding-top: .5em">
+        <div class="col-sm text-right" style="padding-top: .5em;display: inline-flex">
+          <h4 style="font-weight: bold;cursor: pointer" routerLink="/authenticate">Login</h4>
+          <h4 style="font-weight: bold;margin-left: 1em;cursor: pointer" (click)="navigateToProfile()">Profile</h4>
+
+        </div>
+        <div class="col-sm text-left" style="display: inline-flex">
+          <button *ngIf="cartSize >0" matBadge="{{cartSize}}" matBadgePosition="after" matBadgeColor="accent"
+                  mat-icon-button (click)="openCartDialog()">
+            <mat-icon>shopping_cart</mat-icon>
+          </button>
+          <h5 *ngIf="total>0" style="margin: .5em 1em;font-weight: bold">{{total}}din</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

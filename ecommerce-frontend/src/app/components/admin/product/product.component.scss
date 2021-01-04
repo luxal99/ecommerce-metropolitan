@@ -1,0 +1,80 @@
+@import "../../../../assets/scss/variables";
+
+h3 {
+  font-weight: bold;
+  color: $blue-font-color;
+}
+
+.large-product-btn {
+  @extend .create-btn;
+  padding: 3em;
+  width: 100%;
+}
+
+input {
+  color: #fff;
+}
+
+.red {
+  background-color: $red;
+  color: #fff;
+}
+
+.violet {
+  background-color: $violet;
+}
+
+.button-row {
+  padding: 0em 0em 5em 0;
+}
+
+.content {
+  padding: 5em 1em
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: $light-violet !important;
+  transform: none !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: $light-violet !important;;
+}
+
+::ng-deep.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: $light-violet !important;
+}
+
+mat-label, mat-icon {
+  color: #fff;
+}
+
+
+.product-div {
+  height: 30vh;
+  overflow-y: scroll;
+
+  .product-row {
+    margin: 2em 1em;
+    @extend .title-in-col;
+
+    .col-sm-3 {
+      button {
+        margin: .5em;
+        width: 40%;
+        padding: .4em 0;
+        border-radius: 20px;
+      }
+
+      .violet {
+        color: $blue-font-color;
+      }
+    }
+  }
+}

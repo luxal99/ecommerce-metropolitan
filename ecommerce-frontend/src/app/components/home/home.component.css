@@ -1,0 +1,158 @@
+.create-btn {
+  width: 40%;
+  background-color: #212132;
+  color: #56CCF2;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  padding: 0.5em 0;
+  border-radius: 20px;
+}
+
+.home {
+  margin: 3em 10em;
+}
+
+.dialog {
+  padding: 1em 2em;
+}
+
+::ng-deep.mat-form-field-appearance-fill .mat-form-field-flex {
+  border-radius: 20px !important;
+}
+
+.row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+h1, h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+}
+
+h3, h4, h5, h6, p {
+  font-family: "Poppins", sans-serif;
+}
+
+::-webkit-scrollbar {
+  height: 1em !important;
+  background-color: #212132 !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #56CCF2 !important;
+  border-radius: 10px !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  display: none;
+}
+
+::ng-deep.mat-dialog-container {
+  background-color: #1a1a26;
+  box-shadow: none;
+}
+
+::ng-deep.mat-form-field-appearance-fill .mat-form-field-underline::before {
+  background: none;
+}
+
+::ng-deep.mat-form-field-underline {
+  transform: none;
+}
+
+.title-in-col h3 {
+  color: #fff;
+}
+.title-in-col h5 {
+  font-weight: bold;
+  color: #999;
+}
+
+.button-inline button {
+  width: 40%;
+  margin: 1em;
+  border-radius: 20px;
+  padding: 0.4em 0;
+}
+.button-inline .edit-btn {
+  background-color: #6e00ff;
+  color: #56CCF2;
+}
+.button-inline .delete-btn {
+  background-color: #ff0047;
+  color: #fff;
+}
+
+.left-col {
+  padding-top: 5em;
+}
+
+.header-row {
+  background-color: #d6effa;
+  padding: 5em;
+  border-radius: 20px;
+}
+
+mat-form-field {
+  width: 50% !important;
+}
+
+.category-div {
+  padding: 3em 0;
+}
+.category-div h3 {
+  font-weight: bold;
+}
+.category-div .category-col {
+  padding: 4em;
+  background-color: #f3f4f7;
+  border-radius: 20px;
+  margin: 1em;
+  cursor: pointer;
+}
+.category-div .category-col h5 {
+  font-weight: bold;
+}
+
+.product-col {
+  border: 1px solid #eee !important;
+  border-radius: 20px;
+  margin: 1em;
+  padding: 0 !important;
+}
+.product-col img {
+  padding: 3em;
+}
+.product-col .col-body {
+  padding: 2em;
+  margin: 1em;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.product-col .col-body h6 {
+  font-weight: bold;
+}
+
+.h3-bold {
+  font-weight: bold;
+}
+
+.about-div span {
+  font-weight: bold;
+}
+.about-div .h3-bold {
+  padding-top: 1.5em;
+}
+.about-div mat-icon {
+  font-size: 40px;
+  width: 40px;
+  height: 40px;
+  font-weight: bold;
+}
+
+::ng-deep.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #eee !important;
+}
+
+/*# sourceMappingURL=home.component.css.map */

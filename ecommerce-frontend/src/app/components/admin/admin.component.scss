@@ -1,0 +1,37 @@
+@import "../../../assets/scss/variables";
+.admin {
+  background-color: #212132;
+  min-height: 100vh;
+
+  padding: 1em;
+
+  .col-sm-10 {
+    margin-top: 5em;
+    background-color: #1a1a26;
+    padding: 6em 2em 2em 10em;
+    border-radius: 5em;
+    min-height: 85vh
+  }
+
+  img {
+    margin-bottom: 3em;
+  }
+}
+
+.menu {
+  padding:10em 2em;
+}
+
+h4 {
+  color: #fff;
+  cursor: pointer;
+}
+
+.active {
+  transition: .5s ease;
+  color: $blue-font-color;
+  background-color: #1a1a26;
+  padding: .5em;
+  border-radius: 20px;
+}
+

@@ -1,0 +1,95 @@
+<div class="dialog">
+  <h4>Dodaj proizvod</h4>
+  <mat-horizontal-stepper #stepper>
+    <mat-step [stepControl]="basicProductForm">
+      <div class="step">
+        <form [formGroup]="basicProductForm">
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Title</mat-label>
+              <input formControlName="title" matInput>
+              <mat-icon matSuffix>text_rotation_angledown</mat-icon>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Amount</mat-label>
+              <input formControlName="amount" type="number" matInput>
+              <mat-icon matSuffix>phone</mat-icon>
+
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Price</mat-label>
+              <input formControlName="price" type="number" matInput>
+              <mat-icon matSuffix>phone</mat-icon>
+
+            </mat-form-field>
+          </div>
+        </form>
+
+        <button (click)="stepper.next()" [disabled]="!basicProductForm.valid" mat-raised-button class="next-btn">Next
+        </button>
+      </div>
+    </mat-step>
+    <mat-step [stepControl]="productCategoryForm" label="User credentials">
+
+      <div class="step">
+        <form [formGroup]="productCategoryForm">
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Product brand</mat-label>
+              <mat-select formControlName="idProductBrand">
+                <mat-option *ngFor="let productBrand of listOfProductBrands" [value]="productBrand.id">
+                  {{productBrand.title}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Product category</mat-label>
+              <mat-select formControlName="idProductCategory">
+                <mat-option *ngFor="let productCategory of listOfProductCategories" [value]="productCategory.id">
+                  {{productCategory.title}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </form>
+
+        <ckeditor #editor [editor]="Editor"></ckeditor>
+
+        <div class="inline-btn-div">
+          <button (click)="stepper.previous()" mat-raised-button class="back-btn">Back</button>
+          <button mat-button class="next-btn"
+                  (click)="stepper.next()" style="margin-left: 1em">Next
+          </button>
+        </div>
+      </div>
+    </mat-step>
+    <mat-step>
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" multiple id="customFile" (change)="addFiles($event.target.files)">
+        <label class="custom-file-label" for="customFile">Izabei fajl</label>
+      </div>
+      <div style="padding: 2em 0 2em 0;display: none;" id="spinner">
+        <mat-spinner></mat-spinner>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-2" *ngFor="let image of data.listOfImages" style="margin-top: 2em;">
+          <img *ngIf="image.url" src="{{image.url}}" alt="" class="img-fluid">
+          <div class="text-center">
+            <button class="silver-btn" (click)="deleteImage(image)" mat-button style="margin-top: 1em;width: 90%;">Obrisi</button>
+          </div>
+        </div>
+      </div>
+      <button mat-button class="next-btn"
+              (click)="save()" style="margin-left: 1em;margin-top: 2em">Save
+      </button>
+    </mat-step>
+  </mat-horizontal-stepper>
+
+</div>

@@ -1,0 +1,28 @@
+@import "../../../../assets/scss/variables";
+
+.right-col {
+  padding-top: 5em;
+  h2 {
+    font-weight: bold;
+
+  }
+}
+
+.home {
+  padding-top: 6em;
+}
+.small-img {
+  width: 100%;
+  margin-top: 2em;
+  cursor: pointer;
+  height: 100px;
+
+}
+
+.small-img:hover{
+  -webkit-box-shadow: 10px 10px 47px -31px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 47px -31px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 47px -31px rgba(0,0,0,0.75);
+  padding: 1em;
+  transition: .3s;
+}

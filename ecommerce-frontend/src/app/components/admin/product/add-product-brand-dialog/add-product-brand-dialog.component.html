@@ -1,0 +1,36 @@
+<mat-tab-group animationDuration="300ms">
+  <mat-tab label="Add Product">
+    <div class="dialog-tabs">
+      <h4 class="dialog-h3">Dodaj kategoriju proizvoda</h4>
+      <form [formGroup]="productBrandForm">
+
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Category title</mat-label>
+            <input formControlName="title" matInput>
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+        </div>
+        <button mat-raised-button class="create-btn" (click)="save()">Dodaj brend</button>
+      </form>
+    </div>
+  </mat-tab>
+  <mat-tab label="Get all & Edit">
+    <div class="dialog-tabs">
+      <div class="row" *ngFor="let productBrand of listOfProductBrands">
+        <div class="col-sm">
+          <h5>Title</h5>
+          <h3>{{productBrand.title}}</h3>
+        </div>
+        <div class="col-sm">
+          <div class="button-inline">
+            <button mat-raised-button class="edit-btn">Edit</button>
+
+            <button mat-raised-button class="delete-btn" (click)="delete(productBrand.id)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+

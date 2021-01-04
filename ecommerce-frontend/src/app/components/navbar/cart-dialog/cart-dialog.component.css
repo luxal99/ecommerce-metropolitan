@@ -1,0 +1,122 @@
+.create-btn, .create-order-btn {
+  width: 40%;
+  background-color: #212132;
+  color: #56CCF2;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  padding: 0.5em 0;
+  border-radius: 20px;
+}
+
+.home {
+  margin: 3em 10em;
+}
+
+.dialog {
+  padding: 1em 2em;
+}
+
+::ng-deep.mat-form-field-appearance-fill .mat-form-field-flex {
+  border-radius: 20px !important;
+}
+
+.row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+h1, h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+}
+
+h3, h4, h5, h6, p {
+  font-family: "Poppins", sans-serif;
+}
+
+::-webkit-scrollbar {
+  height: 1em !important;
+  background-color: #212132 !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #56CCF2 !important;
+  border-radius: 10px !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  display: none;
+}
+
+::ng-deep.mat-dialog-container {
+  background-color: #1a1a26;
+  box-shadow: none;
+}
+
+::ng-deep.mat-form-field-appearance-fill .mat-form-field-underline::before {
+  background: none;
+}
+
+::ng-deep.mat-form-field-underline {
+  transform: none;
+}
+
+.title-in-col h3 {
+  color: #fff;
+}
+.title-in-col h5 {
+  font-weight: bold;
+  color: #999;
+}
+
+.button-inline button {
+  width: 40%;
+  margin: 1em;
+  border-radius: 20px;
+  padding: 0.4em 0;
+}
+.button-inline .edit-btn {
+  background-color: #6e00ff;
+  color: #56CCF2;
+}
+.button-inline .delete-btn {
+  background-color: #ff0047;
+  color: #fff;
+}
+
+h3 {
+  color: #fff;
+  font-weight: bold;
+}
+
+.dialog {
+  padding: 3em 2em;
+}
+
+.row {
+  margin: 2em 1em;
+}
+.row h3 {
+  font-weight: normal;
+}
+
+h5 {
+  color: #999;
+}
+
+span {
+  color: #56CCF2;
+  font-weight: bold;
+}
+
+mat-divider {
+  border-top-color: #56CCF2;
+}
+
+.create-order-btn {
+  background-color: #56CCF2;
+  color: #1a1a26;
+  width: 30% !important;
+}
+
+/*# sourceMappingURL=cart-dialog.component.css.map */
