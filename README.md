@@ -7,8 +7,8 @@ Basic ecommerce web application. This is my university project.
 ## Technologies
 
 1. MySQL
-2.SpringBoot
-3.Angular 8.2.3 with Material
+2. SpringBoot
+3. Angular 8.2.3 with Material
 
 ## Functionality
 
