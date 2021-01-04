@@ -7,9 +7,7 @@ Basic ecommerce web application. This is my university project.
 ## Technologies
 
 1. MySQL
-
 2. SpringBoot
-
 3. Angular 8.2.3 with Material
 
 ## Functionality
@@ -29,8 +27,8 @@ Basic ecommerce web application. This is my university project.
 ### Requirements
 
 1. MySQL server
-2.Java
-3.Angular 8.2.3
+2. Java
+3. Angular 8.2.3
 
 If you have all of the requirements met you can go to the next step
 
