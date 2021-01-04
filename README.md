@@ -1,4 +1,4 @@
-#Ecommerce
+# Ecommerce
 
 ## Description
 
@@ -187,8 +187,21 @@ You can run SQL script in next step to skip basic admin registration.
 
 ```mysql
 INSERT INTO `role` VALUES (1,'ROLE_ADMIN'),(2,'ROLE_CLIENT');
-
 ```
 ```mysql
-INSERT INTO `user` VALUES (1,'admin','$2a$10$DZU0pMbWAdM2F4js0wLAhuxMO4XnnaQPFeXeNKzZ.kY79Xgllv1qW',1,NULL),(9,'luxal99','$2a$10$C2o45b9BT6E8dsCG.ItsfOqP2fYcEXcs.esfmAvXfEXZEfvIBM9iO',2,32);
+INSERT INTO `user` VALUES (1,'admin','$2a$10$DZU0pMbWAdM2F4js0wLAhuxMO4XnnaQPFeXeNKzZ.kY79Xgllv1qW',1,NULL)
 ```
+
+## Backend
+
+**Open Intellij**
+
+* Open foleder **ecommerce-backend** as project
+* After that you can click **PLAY** button and run project
+
+## Frontend
+
+* Open folder **ecommerce-frontend**
+* In console you can type **npm start**
+
+After that you can open browser and go to address **http://localhost:4200/** .
