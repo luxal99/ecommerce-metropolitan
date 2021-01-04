@@ -28,7 +28,7 @@
   <div class="product-div">
     <div class="row product-row " *ngFor="let product of listOfProducts|product:searchText">
       <div class="col-sm-2">
-        <img class="img-fluid" [src]="product.listOfImages[0].url">
+        <img class="img-fluid" *ngIf="product.listOfImages[0]" [src]="product.listOfImages[0].url">
       </div>
       <div class="col-sm-3">
         <h5>Title</h5>
@@ -44,7 +44,7 @@
       </div>
       <div class="col-sm-3">
         <div class="button-inline">
-          <button mat-raised-button class="edit-btn ">Edit</button>
+          <button mat-raised-button class="edit-btn " (click)="openEditProductDialog(product)">Edit</button>
 
           <button mat-raised-button class="delete-btn" (click)="delete(product.id)">Delete</button>
         </div>

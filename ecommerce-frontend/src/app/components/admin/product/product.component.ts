@@ -12,6 +12,7 @@ import {ERR_MESSAGE} from '../../../constant/const';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
 import {RouterHandler} from '../../../util/router';
+import {EditProductDialogComponent} from './edit-product-dialog/edit-product-dialog.component';
 
 @Component({
   selector: 'app-product',
@@ -51,16 +52,27 @@ export class ProductComponent implements OnInit {
   }
 
   openAddProductDialog() {
-    DialogUtil.openDialog(AddProductDialogComponent, DialogOptions.getOptions({}), this.dialog);
+    DialogUtil.openDialog(AddProductDialogComponent, DialogOptions.getOptions({}), this.dialog).afterClosed().subscribe(() => {
+      this.getAll();
+    });
   }
 
   openAddProductCategoryDialog() {
-    DialogUtil.openDialog(AddProductCategoryDialogComponent, DialogOptions.getOptions({}), this.dialog);
+    DialogUtil.openDialog(AddProductCategoryDialogComponent, DialogOptions.getOptions({}), this.dialog).afterClosed().subscribe(() => {
+      this.getAll();
+    });
   }
 
   openAddProductBrandDialog() {
-    DialogUtil.openDialog(AddProductBrandDialogComponent, DialogOptions.getOptions({}), this.dialog);
+    DialogUtil.openDialog(AddProductBrandDialogComponent, DialogOptions.getOptions({}), this.dialog).afterClosed().subscribe(() => {
+      this.getAll();
+    });
   }
 
+  openEditProductDialog(product: Product) {
+    DialogUtil.openDialog(EditProductDialogComponent, DialogOptions.getOptions(product), this.dialog).afterClosed().subscribe(() => {
+      this.getAll();
+    });
+  }
 
 }

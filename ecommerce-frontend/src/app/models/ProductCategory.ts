@@ -3,7 +3,7 @@ export class ProductCategory {
   title: string;
 
 
-  constructor(title: string) {
+  constructor(title?: string) {
     this.title = title;
   }
 }

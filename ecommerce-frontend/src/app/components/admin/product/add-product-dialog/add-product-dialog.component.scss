@@ -29,5 +29,6 @@ mat-icon,input {
 .inline-btn-div{
   display: inline-flex;width: 100%;margin-top: 2em
 }
-
-
+::ng-deep.mat-select-value {
+  color: #fff !important;
+}
