@@ -151,4 +151,8 @@ mat-form-field {
   font-weight: bold;
 }
 
+::ng-deep.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #eee !important;
+}
+
 /*# sourceMappingURL=home.component.css.map */

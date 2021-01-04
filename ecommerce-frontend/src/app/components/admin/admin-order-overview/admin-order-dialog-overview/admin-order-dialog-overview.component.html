@@ -3,7 +3,25 @@
     <app-heading header="User info">
     </app-heading>
   </div>
-  <div class="col-sm text-right" style="color: #eeeeee"><h3>{{order.orderStatus}}</h3></div>
+  <div class="col-sm text-right" style="color: #eeeeee">
+    <div class="row">
+      <div class="col-sm text-right">
+        <form [formGroup]="orderStatusForm">
+          <mat-form-field appearance="fill">
+            <mat-label>Order status</mat-label>
+            <mat-select formControlName="orderStatus">
+              <mat-option *ngFor="let orderStatus of listOfOrdersStatus" [value]="orderStatus">
+                {{orderStatus}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </form>
+      </div>
+      <div class="col-sm text-right">
+        <button mat-raised-button class="create-btn" style="width: 80%" (click)="updateStatus()">Change status</button>
+      </div>
+    </div>
+  </div>
 </div>
 <mat-divider></mat-divider>
 <div class="info">
@@ -45,6 +63,3 @@
 </app-heading>
 <mat-divider></mat-divider>
 <h5 style="margin-top: 1em;color: #eeeeee;font-weight: bold">Total: {{order.total}}</h5>
-<div style="margin-top: 2em">
-  <button mat-raised-button class="create-btn">Approve</button>
-</div>

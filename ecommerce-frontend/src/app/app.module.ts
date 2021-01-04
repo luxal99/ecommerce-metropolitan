@@ -8,7 +8,6 @@ import {AdminComponent} from './components/admin/admin.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule} from './material.module';
 import {ProductComponent} from './components/admin/product/product.component';
-import {GlobalComponent} from './components/admin/global/global.component';
 import {HeadingComponent} from './directives/heading/heading.component';
 import {AddProductDialogComponent} from './components/admin/product/add-product-dialog/add-product-dialog.component';
 import {LoginComponent} from './components/login/login.component';
@@ -28,7 +27,6 @@ import {ProductBindingComponent} from './components/home/product-binding/product
 import {CartDialogComponent} from './components/navbar/cart-dialog/cart-dialog.component';
 import {ClientComponent} from './components/client/client.component';
 import {ClientOrderOverviewComponent} from './components/client/client-order-overview/client-order-overview.component';
-import {ClientGlobalOverviewComponent} from './components/client/client-global-overview/client-global-overview.component';
 import {ShippingAddressComponent} from './components/client/shipping-address/shipping-address.component';
 import {ClientOrderProductPreviewComponent} from './components/client/client-order-overview/client-order-product-preview/client-order-product-preview.component';
 import {AdminOrderOverviewComponent} from './components/admin/admin-order-overview/admin-order-overview.component';
@@ -42,7 +40,6 @@ import {AdminOrderDialogOverviewComponent} from './components/admin/admin-order-
     HomeComponent,
     AdminComponent,
     ProductComponent,
-    GlobalComponent,
     HeadingComponent,
     AddProductDialogComponent,
     LoginComponent,
@@ -57,7 +54,6 @@ import {AdminOrderDialogOverviewComponent} from './components/admin/admin-order-
     CartDialogComponent,
     ClientComponent,
     ClientOrderOverviewComponent,
-    ClientGlobalOverviewComponent,
     ShippingAddressComponent,
     ClientOrderProductPreviewComponent,
     AdminOrderOverviewComponent,
@@ -85,8 +81,8 @@ import {AdminOrderDialogOverviewComponent} from './components/admin/admin-order-
     BrowserAnimationsModule
   ],
   entryComponents: [ProductComponent, AddProductBrandDialogComponent,
-    AddProductCategoryDialogComponent, GlobalComponent, AddProductDialogComponent, CartDialogComponent, ShippingAddressComponent,
-    ClientGlobalOverviewComponent, ClientOrderOverviewComponent, EditProductDialogComponent,
+    AddProductCategoryDialogComponent, AddProductDialogComponent, CartDialogComponent, ShippingAddressComponent,
+    ClientOrderOverviewComponent, EditProductDialogComponent,
     AdminOrderOverviewComponent, AdminOrderDialogOverviewComponent, ClientOrderProductPreviewComponent],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]

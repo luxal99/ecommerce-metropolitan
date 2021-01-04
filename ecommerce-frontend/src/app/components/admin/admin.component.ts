@@ -1,7 +1,6 @@
 import {AfterViewInit, Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {LazyLoadComponentsUtil} from '../../util/lazy-load-components';
 import {ProductComponent} from './product/product.component';
-import {GlobalComponent} from './global/global.component';
 import {AdminOrderOverviewComponent} from './admin-order-overview/admin-order-overview.component';
 
 @Component({
@@ -10,7 +9,6 @@ import {AdminOrderOverviewComponent} from './admin-order-overview/admin-order-ov
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit, AfterViewInit {
-
 
   @ViewChild('target', {read: ViewContainerRef, static: false}) entry: ViewContainerRef;
 
@@ -27,8 +25,8 @@ export class AdminComponent implements OnInit, AfterViewInit {
   }
 
 
-  async initDefaultMenu() {
-    document.getElementById('overview-btn').click();
+  initDefaultMenu() {
+    document.getElementById('product-btn').click();
   }
 
   changeColor(e) {
@@ -41,10 +39,6 @@ export class AdminComponent implements OnInit, AfterViewInit {
 
   loadProductComponent() {
     LazyLoadComponentsUtil.loadComponent(ProductComponent, this.entry, this.cvRef, this.resolver);
-  }
-
-  async loadGlobalOverview() {
-    LazyLoadComponentsUtil.loadComponent(GlobalComponent, this.entry, this.cvRef, this.resolver);
   }
 
   async loadOrderOverview() {

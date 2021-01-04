@@ -8,7 +8,7 @@ export class DialogOptions {
     if (window.screen.width <= 570) {
       this.dialogOptions = new Options('100%', {bottom: '0'}, '82vh', data);
     } else {
-      this.dialogOptions = new Options('50%', {bottom: '0'}, 'auto', data);
+      this.dialogOptions = new Options('50%', {bottom: '0'}, '90vh', data);
     }
     return this.dialogOptions;
   }

@@ -10,7 +10,7 @@ mat-icon {
   color: $blue-font-color;
 }
 ::ng-deep.mat-form-field-appearance-fill .mat-form-field-flex {
-  background-color: $light-violet;
+  background-color: $light-violet !important;
 }
 
 mat-label {

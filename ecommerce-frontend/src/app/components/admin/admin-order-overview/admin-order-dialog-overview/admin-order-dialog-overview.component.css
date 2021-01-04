@@ -88,6 +88,18 @@ mat-divider {
   border-top-color: #212132;
 }
 
+::ng-deep.mat-select-value {
+  color: #fff !important;
+}
+
+mat-form-field {
+  width: 80%;
+}
+
+mat-label {
+  color: #56CCF2;
+}
+
 .info {
   padding: 1em 0;
 }

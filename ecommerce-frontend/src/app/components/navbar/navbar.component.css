@@ -99,4 +99,8 @@ mat-icon {
   height: 40px;
 }
 
+::ng-deep.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #eee !important;
+}
+
 /*# sourceMappingURL=navbar.component.css.map */

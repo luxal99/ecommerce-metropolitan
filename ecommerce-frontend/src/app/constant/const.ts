@@ -36,7 +36,9 @@ export const ADMIN_ROLE_NAME = 'ROLE_ADMIN';
 export const CITY_FORM_CONTROL = 'city';
 export const ADDRESS_FORM_CONTROL = 'address';
 export const POSTCODE_FORM_CONTROL = 'postcode';
+export const ORDER_STATUS_FORM_CONTROL = 'orderStatus';
 
 export const SUCCESS_MESSAGE = 'Success';
 export const ERR_MESSAGE = 'Error';
 export const ROLE_LOCAL_STORAGE = 'role';
+export const ORDER_STATUS_ARR = ['NA CEKANJU', 'POSLATO', 'ISPORUCENO'];

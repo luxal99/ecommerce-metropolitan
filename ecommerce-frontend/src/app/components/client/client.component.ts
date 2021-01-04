@@ -1,7 +1,6 @@
 import {AfterViewInit, Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {LazyLoadComponentsUtil} from '../../util/lazy-load-components';
 import {ClientOrderOverviewComponent} from './client-order-overview/client-order-overview.component';
-import {ClientGlobalOverviewComponent} from './client-global-overview/client-global-overview.component';
 import {ShippingAddressComponent} from './shipping-address/shipping-address.component';
 
 @Component({
@@ -35,16 +34,13 @@ export class ClientComponent implements OnInit, AfterViewInit {
   }
 
   async initDefaultMenu() {
-    document.getElementById('overview-btn').click();
+    document.getElementById('order-btn').click();
   }
 
   loadOrderOverview() {
     LazyLoadComponentsUtil.loadComponent(ClientOrderOverviewComponent, this.entry, this.cvRef, this.resolver);
   }
 
-  loadGlobalOverview() {
-    LazyLoadComponentsUtil.loadComponent(ClientGlobalOverviewComponent, this.entry, this.cvRef, this.resolver);
-  }
 
   loadShippingAddressSettings() {
     LazyLoadComponentsUtil.loadComponent(ShippingAddressComponent, this.entry, this.cvRef, this.resolver);

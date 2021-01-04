@@ -1,15 +1,18 @@
 @import "../../../../../assets/scss/variables";
+
 mat-horizontal-stepper {
   background-color: $darken-violet;
 }
+
 h4 {
   color: #fff;
 }
+
 mat-form-field {
   width: 100%;
 }
 
-mat-icon,input {
+mat-icon, input {
   color: #fff;
 }
 
@@ -20,15 +23,20 @@ mat-icon,input {
   padding: .4em 0;
   color: #fff;
 }
+
 .next-btn {
   width: 60%;
   background-color: #fff;
   border-radius: 20px;
   padding: .4em 0;
 }
-.inline-btn-div{
-  display: inline-flex;width: 100%;margin-top: 2em
+
+.inline-btn-div {
+  display: inline-flex;
+  width: 100%;
+  margin-top: 2em
 }
+
 ::ng-deep.mat-select-value {
   color: #fff !important;
 }

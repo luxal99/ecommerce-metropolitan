@@ -252,4 +252,8 @@ button {
   padding: 5em;
 }
 
+::ng-deep.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #eee !important;
+}
+
 /*# sourceMappingURL=login.component.css.map */
