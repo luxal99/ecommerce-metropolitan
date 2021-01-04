@@ -133,6 +133,7 @@ export class EditProductDialogComponent implements OnInit {
     product.description = this.editorComponent.editorInstance.getData();
 
     product.listOfImages = this.data.listOfImages;
+    product.initialCartSize = 1;
     product.id = this.data.id;
 
     this.productService.update(product).subscribe(() => {

@@ -26,7 +26,7 @@ export class GenericService<T> {
     });
   }
 
-  getAll(headers?: HttpHeaders): Observable<T[]> {
+  getAll(headers?: any): Observable<T[]> {
     return this.http.get<T[]>(`${this.route}`, {
       responseType: 'json',
       headers

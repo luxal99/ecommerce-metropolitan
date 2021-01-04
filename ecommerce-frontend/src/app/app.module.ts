@@ -33,6 +33,7 @@ import {ShippingAddressComponent} from './components/client/shipping-address/shi
 import {ClientOrderProductPreviewComponent} from './components/client/client-order-overview/client-order-product-preview/client-order-product-preview.component';
 import {AdminOrderOverviewComponent} from './components/admin/admin-order-overview/admin-order-overview.component';
 import {EditProductDialogComponent} from './components/admin/product/edit-product-dialog/edit-product-dialog.component';
+import {AdminOrderDialogOverviewComponent} from './components/admin/admin-order-overview/admin-order-dialog-overview/admin-order-dialog-overview.component';
 
 // @ts-ignore
 @NgModule({
@@ -60,7 +61,8 @@ import {EditProductDialogComponent} from './components/admin/product/edit-produc
     ShippingAddressComponent,
     ClientOrderProductPreviewComponent,
     AdminOrderOverviewComponent,
-    EditProductDialogComponent
+    EditProductDialogComponent,
+    AdminOrderDialogOverviewComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +87,7 @@ import {EditProductDialogComponent} from './components/admin/product/edit-produc
   entryComponents: [ProductComponent, AddProductBrandDialogComponent,
     AddProductCategoryDialogComponent, GlobalComponent, AddProductDialogComponent, CartDialogComponent, ShippingAddressComponent,
     ClientGlobalOverviewComponent, ClientOrderOverviewComponent, EditProductDialogComponent,
-    AdminOrderOverviewComponent, ClientOrderProductPreviewComponent],
+    AdminOrderOverviewComponent, AdminOrderDialogOverviewComponent, ClientOrderProductPreviewComponent],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
