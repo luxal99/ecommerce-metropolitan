@@ -32,4 +32,11 @@ public class ProductCategoryEntity extends BaseEntity implements Serializable {
     public void setListOfProducts(List<ProductEntity> listOfProducts) {
         this.listOfProducts = listOfProducts;
     }
+
+    public ProductCategoryEntity() {
+    }
+
+    public ProductCategoryEntity(String title) {
+        this.title = title;
+    }
 }

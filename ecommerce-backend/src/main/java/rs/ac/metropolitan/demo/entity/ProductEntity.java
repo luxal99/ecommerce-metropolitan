@@ -43,6 +43,7 @@ public class ProductEntity extends BaseEntity implements Serializable {
     @ManyToMany(mappedBy = "listOfProducts")
     private final List<OrderEntity> listOfOrders = new ArrayList<>();
 
+
     public String getTitle() {
         return title;
     }
