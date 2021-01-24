@@ -3,6 +3,7 @@ package rs.ac.metropolitan.demo.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 import rs.ac.metropolitan.demo.entity.BaseEntity;
 import rs.ac.metropolitan.demo.repository.GenericRepository;
@@ -24,7 +25,7 @@ public class GenericController<T extends BaseEntity> {
         return repository.save(entity);
     }
 
-    @RequestMapping( method = RequestMethod.PUT)
+    @RequestMapping(method = RequestMethod.PUT)
     public T update(@RequestBody T entity) {
         return repository.save(entity);
     }
@@ -34,9 +35,13 @@ public class GenericController<T extends BaseEntity> {
         repository.deleteById(id);
     }
 
-    @RequestMapping(params = "id",method = RequestMethod.GET)
-    public T get(@RequestParam("id") Long id) {
-        return repository.findById(id).get();
+    @RequestMapping(params = "id", method = RequestMethod.GET)
+    public ResponseEntity<T> get(@RequestParam("id") Long id) {
+        try {
+            return ResponseEntity.ok(repository.findById(id).get());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+        }
     }
 
     @PostMapping("saveAll")

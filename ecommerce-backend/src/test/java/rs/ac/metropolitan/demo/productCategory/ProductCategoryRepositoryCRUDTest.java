@@ -1,4 +1,4 @@
-package rs.ac.metropolitan.demo.test;
+package rs.ac.metropolitan.demo.productCategory;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
@@ -21,7 +21,7 @@ import java.util.List;
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-public class ProductCategoryTest {
+public class ProductCategoryRepositoryCRUDTest {
 
 
     @Autowired

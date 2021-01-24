@@ -54,8 +54,15 @@ public class OrderEntity extends BaseEntity implements Serializable {
         return listOfProducts;
     }
 
+
+    public void setListOfProducts(List<ProductEntity> listOfProducts) {
+        this.listOfProducts = listOfProducts;
+    }
+
     @ManyToMany()
     @JoinTable(name = "order_products", joinColumns = {@JoinColumn(name = "id_order")},
             inverseJoinColumns = {@JoinColumn(name = "id_product")})
-    private final List<ProductEntity> listOfProducts = new ArrayList<>();
+    private List<ProductEntity> listOfProducts = new ArrayList<>();
+
+
 }

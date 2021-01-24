@@ -24,6 +24,18 @@ public class UserInfoEntity extends BaseEntity implements Serializable {
     @OneToOne(optional = false,fetch = FetchType.LAZY,cascade = CascadeType.PERSIST)
     private ShippingAddressEntity idShippingAddress;
 
+    public UserInfoEntity() {
+    }
+
+    public UserInfoEntity(String fullName, String email, String telephone, List<OrderEntity> ordersById, UserEntity idUser, ShippingAddressEntity idShippingAddress) {
+        this.fullName = fullName;
+        this.email = email;
+        this.telephone = telephone;
+        this.ordersById = ordersById;
+        this.idUser = idUser;
+        this.idShippingAddress = idShippingAddress;
+    }
+
     public String getFullName() {
         return fullName;
     }
