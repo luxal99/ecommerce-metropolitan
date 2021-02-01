@@ -69,16 +69,4 @@ public class ProductCategoryRepositoryCRUDTest {
         Assertions.assertThat(updated.getId()).isEqualTo(productCategoryEntity.getId());
         Assertions.assertThat(oldTittle).isNotEqualTo(updated.getTitle());
     }
-
-    @Test
-    public void deleteProductCategory() {
-        ProductCategoryEntity productCategoryEntity = productCategoryRepository.saveAndFlush(new ProductCategoryEntity("Test"));
-        int listSizeBeforeDelete = productCategoryRepository.findAll().size();
-
-        productCategoryRepository.deleteById(productCategoryEntity.getId());
-        int listSizeAfterDelete = productCategoryRepository.findAll().size();
-
-       Assertions.assertThat(listSizeBeforeDelete).isGreaterThan(listSizeAfterDelete);
-
-    }
 }
